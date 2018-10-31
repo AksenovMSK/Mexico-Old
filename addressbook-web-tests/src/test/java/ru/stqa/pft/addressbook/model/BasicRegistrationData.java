@@ -2,16 +2,16 @@ package ru.stqa.pft.addressbook.model;
 
 public class BasicRegistrationData {
 
-    private final String firstName;
-    private final String secondName;
-    private final String fatherName;
-    private final String motherName;
-    private final String birthday;
-    private final String mobilePhone;
-    private final String emailAddress;
-    private final String smsCode;
-    private final String password;
-    private final String confirmationPassword;
+    private String firstName;
+    private String secondName;
+    private String fatherName;
+    private String motherName;
+    private String birthday;
+    private String mobilePhone;
+    private String emailAddress;
+    private String smsCode;
+    private String password;
+    private String confirmationPassword;
 
     public BasicRegistrationData(String firstName,
                                  String secondName,
@@ -19,21 +19,25 @@ public class BasicRegistrationData {
                                  String motherName,
                                  String birthday,
                                  String mobilePhone,
-                                 String emailAddress,
-                                 String smsCode,
-                                 String password,
-                                 String confirmationPassword){
+                                 String emailAddress){
         this.firstName = firstName;
         this.secondName = secondName;
         this.fatherName = fatherName;
         this.motherName = motherName;
         this.birthday = birthday;
         this.mobilePhone = mobilePhone;
-        this.emailAddress = emailAddress;
+        this.emailAddress = emailAddress;;
+    }
+
+    public BasicRegistrationData(String smsCode,
+                                 String password,
+                                 String confirmationPassword){
         this.smsCode = smsCode;
         this.password = password;
         this.confirmationPassword = confirmationPassword;
     }
+
+
 
     public String getFirstName() {
         return firstName;

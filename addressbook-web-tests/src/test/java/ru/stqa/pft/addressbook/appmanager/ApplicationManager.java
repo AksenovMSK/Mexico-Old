@@ -18,6 +18,7 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
   private ContacrHelper contacrHelper;
+  private RegistrationHelper registrationHelper;
   private String browser;
 
   public ApplicationManager(String browser){
@@ -39,6 +40,7 @@ public class ApplicationManager {
     navigationHelper = new NavigationHelper(wd);
     contacrHelper = new ContacrHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    registrationHelper = new RegistrationHelper(wd);
     sessionHelper.login("admin", "secret");
   }
 
@@ -75,5 +77,8 @@ public class ApplicationManager {
 
   public ContacrHelper getContacrHelper() {
     return contacrHelper;
+  }
+
+  public RegistrationHelper getRegistrationHelper() { return registrationHelper;
   }
 }
