@@ -44,4 +44,8 @@ public class RegistrationHelper extends BaseHelper {
     public void initRegistrarionForm1() {
         click(By.linkText("Crea tu perfil"));
     }
+
+    public void selectBirthPlace() {
+
+    }
 }

@@ -16,6 +16,7 @@ public class RegistrationTests extends TestBase  {
                 "20.04.1984",
                 "5552224444",
                 "test@mail.ru"));
+        app.getRegistrationHelper().selectBirthPlace();
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
         app.getRegistrationHelper().submitRegistrationForm1();
