@@ -35,13 +35,13 @@ public class ApplicationManager {
     }
 
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    wd.get("http://mx-stg.dc-lime.ru/");
-    groupHelper = new GroupHelper(wd);
-    navigationHelper = new NavigationHelper(wd);
-    contacrHelper = new ContacrHelper(wd);
-    sessionHelper = new SessionHelper(wd);
+    wd.get("https://www.lime24.mx/");
     registrationHelper = new RegistrationHelper(wd);
-    sessionHelper.login("admin", "secret");
+    //groupHelper = new GroupHelper(wd);
+    //navigationHelper = new NavigationHelper(wd);
+    //contacrHelper = new ContacrHelper(wd);
+    //sessionHelper = new SessionHelper(wd);
+    //sessionHelper.login("admin", "secret");
   }
 
   public void stop() {
