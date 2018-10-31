@@ -7,6 +7,7 @@ public class RegistrationTests extends TestBase  {
 
     @Test
     public void testRegistration(){
+        app.getRegistrationHelper().initRegistrarionForm1();
         app.getRegistrationHelper().fillRegistrationForm1(new BasicRegistrationData(
                 "Testname",
                 "Testsecondname",
@@ -17,10 +18,12 @@ public class RegistrationTests extends TestBase  {
                 "test@mail.ru"));
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
+        app.getRegistrationHelper().submitRegistrationForm1();
         app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
                 "111111",
                 "123456q",
                 "123456q"));
+        app.getRegistrationHelper().submitRegistrationForm2();
     }
 
 }
