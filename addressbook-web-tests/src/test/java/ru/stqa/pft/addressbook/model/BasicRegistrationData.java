@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
+import ru.stqa.pft.addressbook.appmanager.GenerationData;
+
 public class BasicRegistrationData {
 
     private String firstName;
@@ -12,20 +14,19 @@ public class BasicRegistrationData {
     private String smsCode;
     private String password;
     private String confirmationPassword;
+    private GenerationData generationData;
 
     public BasicRegistrationData(String firstName,
                                  String secondName,
                                  String fatherName,
                                  String motherName,
                                  String birthday,
-                                 String mobilePhone,
                                  String emailAddress){
         this.firstName = firstName;
         this.secondName = secondName;
         this.fatherName = fatherName;
         this.motherName = motherName;
         this.birthday = birthday;
-        this.mobilePhone = mobilePhone;
         this.emailAddress = emailAddress;;
     }
 
@@ -57,10 +58,6 @@ public class BasicRegistrationData {
 
     public String getBirthday() {
         return birthday;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
     }
 
     public String getEmailAddress() {

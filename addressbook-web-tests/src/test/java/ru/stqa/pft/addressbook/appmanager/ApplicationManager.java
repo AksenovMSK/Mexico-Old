@@ -19,6 +19,7 @@ public class ApplicationManager {
   private SessionHelper sessionHelper;
   private ContacrHelper contacrHelper;
   private RegistrationHelper registrationHelper;
+  private GenerationData generationData;
   private String browser;
 
   public ApplicationManager(String browser){
@@ -37,6 +38,7 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("https://www.lime24.mx/");
     registrationHelper = new RegistrationHelper(wd);
+    //generationData = new GenerationData(wd);
     //groupHelper = new GroupHelper(wd);
     //navigationHelper = new NavigationHelper(wd);
     //contacrHelper = new ContacrHelper(wd);

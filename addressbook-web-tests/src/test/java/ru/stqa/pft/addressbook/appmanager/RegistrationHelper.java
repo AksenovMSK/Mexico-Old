@@ -9,13 +9,13 @@ public class RegistrationHelper extends BaseHelper {
         super(wd);
     }
 
-    public void fillRegistrationForm1(BasicRegistrationData data){
+    public void fillRegistrationForm1(BasicRegistrationData data, GenerationData gData){
         type(By.id("FirstName"), data.getFirstName());
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
         type(By.id("MotherLastName"), data.getMotherName());
-        type(By.id("Birthday"), data.getBirthday());
-        type(By.id("MobilePhone"), data.getMobilePhone());
+        type(By.id("Birthday"), gData.getGenerationDate());
+        type(By.id("MobilePhone"), gData.getGenerationPhone());
         type(By.id("EmailAddress"), data.getEmailAddress());
     }
 
