@@ -14,12 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
   public WebDriver wd;
 
-  private NavigationHelper navigationHelper;
-  private GroupHelper groupHelper;
-  private SessionHelper sessionHelper;
-  private ContacrHelper contacrHelper;
   private RegistrationHelper registrationHelper;
-  private GenerationData generationData;
   private String browser;
 
   public ApplicationManager(String browser){
@@ -38,16 +33,9 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("https://www.lime24.mx/");
     registrationHelper = new RegistrationHelper(wd);
-    //generationData = new GenerationData(wd);
-    //groupHelper = new GroupHelper(wd);
-    //navigationHelper = new NavigationHelper(wd);
-    //contacrHelper = new ContacrHelper(wd);
-    //sessionHelper = new SessionHelper(wd);
-    //sessionHelper.login("admin", "secret");
   }
 
   public void stop() {
-    //sessionHelper.logout();
     wd.quit();
   }
 
@@ -67,18 +55,6 @@ public class ApplicationManager {
     } catch (NoAlertPresentException e) {
       return false;
     }
-  }
-
-  public GroupHelper getGroupHelper() {
-    return groupHelper;
-  }
-
-  public NavigationHelper getNavigationHelper() {
-    return navigationHelper;
-  }
-
-  public ContacrHelper getContacrHelper() {
-    return contacrHelper;
   }
 
   public RegistrationHelper getRegistrationHelper() { return registrationHelper;
