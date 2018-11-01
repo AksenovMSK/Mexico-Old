@@ -5,7 +5,6 @@ public class GenerationTests {
     public static void main(String[] args) {
         final int min = 11111111; // Минимальное число для диапазона
         final int max = 99999999; // Максимальное число для диапазона
-        final int rnd = rnd(min, max);
 
         for (int i = 0; i < 100; i++) {
             System.out.println("рандомный телефон: 55" + rnd(min, max) + " рандомный год рожления: " + randomDOB());

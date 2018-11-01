@@ -14,7 +14,6 @@ public class RegistrationTests extends TestBase  {
                 "Testsecondname",
                 "TestFathername",
                 "TestMothername",
-                "20.04.1984",
                 "test@mail.ru"), new GenerationData());
         app.getRegistrationHelper().selectBirthPlace(); //пустой
         app.getRegistrationHelper().agreeCookies();

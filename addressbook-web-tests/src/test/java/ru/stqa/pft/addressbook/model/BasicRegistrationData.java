@@ -8,25 +8,20 @@ public class BasicRegistrationData {
     private String secondName;
     private String fatherName;
     private String motherName;
-    private String birthday;
-    private String mobilePhone;
     private String emailAddress;
     private String smsCode;
     private String password;
     private String confirmationPassword;
-    private GenerationData generationData;
 
     public BasicRegistrationData(String firstName,
                                  String secondName,
                                  String fatherName,
                                  String motherName,
-                                 String birthday,
                                  String emailAddress){
         this.firstName = firstName;
         this.secondName = secondName;
         this.fatherName = fatherName;
         this.motherName = motherName;
-        this.birthday = birthday;
         this.emailAddress = emailAddress;;
     }
 
@@ -54,10 +49,6 @@ public class BasicRegistrationData {
 
     public String getMotherName() {
         return motherName;
-    }
-
-    public String getBirthday() {
-        return birthday;
     }
 
     public String getEmailAddress() {
