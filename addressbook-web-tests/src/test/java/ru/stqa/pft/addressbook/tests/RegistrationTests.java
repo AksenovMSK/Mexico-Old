@@ -18,19 +18,13 @@ public class RegistrationTests extends TestBase  {
                 "TestFathername",
                 "TestMothername",
                 "test@mail.ru"), new GenerationData());
-<<<<<<< HEAD
-        app.getRegistrationHelper().selectBirthPlace();
-        app.getRegistrationHelper().agreeCookies();
-        app.getRegistrationHelper().agreePersonal();
-        app.getRegistrationHelper().submitRegistrationForm1();
-=======
         app.getRegistrationHelper().openDropDownselectBirthPlace();
         List<WebElement> birthPlaceList = app.getRegistrationHelper().getBirthPlaceList();
         app.getRegistrationHelper().selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
-//        app.getRegistrationHelper().submitRegistrationForm1();
->>>>>>> try-get-bitth-place-list
+        app.getRegistrationHelper().submitRegistrationForm1();
+
 //        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
 //                "111111",
 //                "123456q",
