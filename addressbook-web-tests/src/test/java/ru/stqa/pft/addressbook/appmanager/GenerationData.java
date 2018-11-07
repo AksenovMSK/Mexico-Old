@@ -82,7 +82,7 @@ public class GenerationData {
         return false;
     }
 
-    public static int getRandomBirthPlace(List<WebElement> birthPlaceList){
+    public static int getRandomElementFromList(List<WebElement> birthPlaceList){
         int randomBirthPlaceNumber = 1 + (int)(Math.random() * birthPlaceList.size() - 1);
         return randomBirthPlaceNumber;
     }

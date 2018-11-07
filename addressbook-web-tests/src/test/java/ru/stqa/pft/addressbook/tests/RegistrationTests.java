@@ -20,8 +20,7 @@ public class RegistrationTests extends TestBase  {
                 "test@mail.ru"), new GenerationData());
         app.getRegistrationHelper().openDropDownselectBirthPlace();
         List<WebElement> birthPlaceList = app.getRegistrationHelper().getBirthPlaceList();
-        int index = GenerationData.getRandomBirthPlace(birthPlaceList);
-        app.getRegistrationHelper().selectBirthPlace(index);
+        app.getRegistrationHelper().selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
 //        app.getRegistrationHelper().submitRegistrationForm1();
