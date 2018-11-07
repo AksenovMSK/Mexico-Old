@@ -1,8 +1,11 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.GenerationData;
 import ru.stqa.pft.addressbook.model.BasicRegistrationData;
+
+import java.util.List;
 
 public class RegistrationTests extends TestBase  {
 
@@ -15,10 +18,19 @@ public class RegistrationTests extends TestBase  {
                 "TestFathername",
                 "TestMothername",
                 "test@mail.ru"), new GenerationData());
+<<<<<<< HEAD
         app.getRegistrationHelper().selectBirthPlace();
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
         app.getRegistrationHelper().submitRegistrationForm1();
+=======
+        app.getRegistrationHelper().openDropDownselectBirthPlace();
+        List<WebElement> birthPlaceList = app.getRegistrationHelper().getBirthPlaceList();
+        app.getRegistrationHelper().selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
+        app.getRegistrationHelper().agreeCookies();
+        app.getRegistrationHelper().agreePersonal();
+//        app.getRegistrationHelper().submitRegistrationForm1();
+>>>>>>> try-get-bitth-place-list
 //        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
 //                "111111",
 //                "123456q",

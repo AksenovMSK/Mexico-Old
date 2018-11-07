@@ -14,6 +14,10 @@ public class BaseHelper {
       wd.findElement(locator).click();
     }
 
+    protected void click(By locator, int index) {
+        wd.findElements(locator).get(index).click();
+    }
+
     protected void type(By locator, String text) {
       wd.findElement(locator).click();
       wd.findElement(locator).clear();
