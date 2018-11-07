@@ -48,13 +48,16 @@ public class RegistrationHelper extends BaseHelper {
         click(By.linkText("Crea tu perfil"));
     }
 
-    public void selectBirthPlace(int index) {
+    public void openDropDownselectBirthPlace(){
         click(By.cssSelector("span.selection"));
-        wd.findElements(By.cssSelector("li.select2-results__option")).get(index).click();
+    }
+
+    public void selectBirthPlace(int index) {
+        wd.findElements(By.cssSelector("li[role='treeitem']")).get(index).click(); // li.select2-results__option
     }
 
     public List<WebElement> getBirthPlaceList(){
-        List<WebElement> elements = wd.findElements(By.cssSelector("li.select2-results__option"));
+        List<WebElement> elements = wd.findElements(By.cssSelector("li[role='treeitem']"));
         return elements;
     }
 }

@@ -18,6 +18,7 @@ public class RegistrationTests extends TestBase  {
                 "TestFathername",
                 "TestMothername",
                 "test@mail.ru"), new GenerationData());
+        app.getRegistrationHelper().openDropDownselectBirthPlace();
         List<WebElement> birthPlaceList = app.getRegistrationHelper().getBirthPlaceList();
         int index = GenerationData.getRandomBirthPlace(birthPlaceList);
         app.getRegistrationHelper().selectBirthPlace(index);
