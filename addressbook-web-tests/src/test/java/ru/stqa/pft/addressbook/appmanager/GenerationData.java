@@ -1,6 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.WebElement;
+
 import java.util.Calendar;
+import java.util.List;
 
 public class GenerationData {
 
@@ -77,5 +80,10 @@ public class GenerationData {
         }
 
         return false;
+    }
+
+    public static int getRandomBirthPlace(List<WebElement> birthPlaceList){
+        int randomBirthPlaceNumber = 2 + (int)(Math.random() * birthPlaceList.size() - 1);     //random(1, birthPlaceList.size() - 1);
+        return randomBirthPlaceNumber;
     }
 }

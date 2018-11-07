@@ -2,7 +2,10 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.BasicRegistrationData;
+
+import java.util.List;
 
 public class RegistrationHelper extends BaseHelper {
     public RegistrationHelper(WebDriver wd) {
@@ -45,8 +48,13 @@ public class RegistrationHelper extends BaseHelper {
         click(By.linkText("Crea tu perfil"));
     }
 
-    public void selectBirthPlace() {
+    public void selectBirthPlace(int index) {
         click(By.cssSelector("span.selection"));
-        click(By.cssSelector("li.select2-results__option:nth-child(2)"));
+        wd.findElements(By.cssSelector("li.select2-results__option")).get(index).click();
+    }
+
+    public List<WebElement> getBirthPlaceList(){
+        List<WebElement> elements = wd.findElements(By.cssSelector("li.select2-results__option"));
+        return elements;
     }
 }
