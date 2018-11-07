@@ -53,7 +53,7 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void selectBirthPlace(int index) {
-        wd.findElements(By.cssSelector("li[role='treeitem']")).get(index).click(); // li.select2-results__option
+        click(By.cssSelector("li[role='treeitem']"), index);
     }
 
     public List<WebElement> getBirthPlaceList(){

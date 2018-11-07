@@ -1,7 +1,5 @@
 package ru.stqa.pft.addressbook.model;
 
-import ru.stqa.pft.addressbook.appmanager.GenerationData;
-
 public class BasicRegistrationData {
 
     private String firstName;
