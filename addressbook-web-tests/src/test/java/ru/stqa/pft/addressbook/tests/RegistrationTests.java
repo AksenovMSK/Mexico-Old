@@ -18,12 +18,12 @@ public class RegistrationTests extends TestBase  {
         app.getRegistrationHelper().selectBirthPlace(); //пустой
         app.getRegistrationHelper().agreeCookies();
         app.getRegistrationHelper().agreePersonal();
-        //app.getRegistrationHelper().submitRegistrationForm1();
-//        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
-//                "111111",
-//                "123456q",
-//                "123456q"));
-        //app.getRegistrationHelper().submitRegistrationForm2();
+        app.getRegistrationHelper().submitRegistrationForm1();
+        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
+                "111111",
+                "123456q",
+                "123456q"));
+        app.getRegistrationHelper().submitRegistrationForm2();
     }
 
 }
