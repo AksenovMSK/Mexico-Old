@@ -47,6 +47,6 @@ public class RegistrationHelper extends BaseHelper {
 
     public void selectBirthPlace() {
         click(By.cssSelector("span.selection"));
-        click(By.cssSelector("li.select2-results__option:nth-child(2)")); //org.openqa.selenium.ElementNotVisibleException: element not interactable
+        click(By.cssSelector("li.select2-results__option:nth-child(2)"));
     }
 }

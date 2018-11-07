@@ -31,7 +31,7 @@ public class ApplicationManager {
     }
 
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    wd.get("https://www.lime24.mx/");
+    wd.get("http://mx-stg.dc-lime.ru/");
     registrationHelper = new RegistrationHelper(wd);
   }
 
