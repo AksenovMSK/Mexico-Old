@@ -30,7 +30,7 @@ public class ApplicationManager {
       wd = new InternetExplorerDriver();
     }
 
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("https://www.lime24.mx/");
     registrationHelper = new RegistrationHelper(wd);
   }
