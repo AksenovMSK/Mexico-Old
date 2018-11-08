@@ -7,6 +7,7 @@ public class BasicRegistrationData {
     private String fatherName;
     private String motherName;
     private String emailAddress;
+    private String reversBirthDate;
     private String smsCode;
     private String password;
     private String confirmationPassword;
@@ -15,23 +16,19 @@ public class BasicRegistrationData {
                                  String secondName,
                                  String fatherName,
                                  String motherName,
-                                 String emailAddress){
+                                 String emailAddress,
+                                 String smsCode,
+                                 String password,
+                                 String confirmationPassword){
         this.firstName = firstName;
         this.secondName = secondName;
         this.fatherName = fatherName;
         this.motherName = motherName;
-        this.emailAddress = emailAddress;;
-    }
-
-    public BasicRegistrationData(String smsCode,
-                                 String password,
-                                 String confirmationPassword){
+        this.emailAddress = emailAddress;
         this.smsCode = smsCode;
         this.password = password;
         this.confirmationPassword = confirmationPassword;
     }
-
-
 
     public String getFirstName() {
         return firstName;
@@ -63,6 +60,13 @@ public class BasicRegistrationData {
 
     public String getConfirmationPassword() {
         return confirmationPassword;
+    }
+
+    public String getReversBirthDate() { return reversBirthDate;
+    }
+
+    public void setReversBirthDate(String reversBirthDate) {
+        this.reversBirthDate = reversBirthDate;
     }
 }
 

@@ -1,14 +1,37 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class GenerationTests {
 
-    public static void main(String[] args) {
-        final int min = 11111111; // Минимальное число для диапазона
-        final int max = 99999999; // Максимальное число для диапазона
+    public static void main(String[] args) throws ParseException {
+//        final int min = 11111111; // Минимальное число для диапазона
+//        final int max = 99999999; // Максимальное число для диапазона
+//
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println("рандомный телефон: 55" + rnd(min, max) + " рандомный год рожления: " + randomDOB());
+//        }
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("рандомный телефон: 55" + rnd(min, max) + " рандомный год рожления: " + randomDOB());
+
+        String str = "15/02/1991";
+        String[] subStr;
+        String delimeter = "/"; // Разделитель
+        subStr = str.split(delimeter); // Разделения строки str с помощью метода split()
+        String dd = null;
+        String mm = null;
+        String yyyy = null;
+        for(int i = 0; i < subStr.length; i++) {
+            if(i==0) {
+                dd = subStr[i];
+            } else if (i ==1){
+                mm = subStr[i];
+            }else {
+                yyyy = subStr[i];
+            }
         }
+        String yy = yyyy.substring(2);
+        System.out.println(yy + mm + dd);
     }
 
     public static int rnd(int min, int max)
