@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.BasicRegistrationData;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class RegistrationHelper extends BaseHelper {
     public RegistrationHelper(WebDriver wd) {
@@ -23,9 +24,10 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void fillRegistrationForm2(BasicRegistrationData data){
-        type(By.name(""), data.getSmsCode());
-        type(By.name(""), data.getPassword());
-        type(By.name(""), data.getConfirmationPassword());
+        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        type(By.id("SmsCode"), data.getSmsCode());
+        type(By.id("Password"), data.getPassword());
+        type(By.id("ConfirmPassword"), data.getConfirmationPassword());
     }
 
     public void agreeCookies() {
@@ -41,7 +43,7 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void submitRegistrationForm2() {
-        click(By.cssSelector(""));
+        click(By.xpath("//button[@type='submit']"));
     }
 
     public void initRegistrarionForm1() {

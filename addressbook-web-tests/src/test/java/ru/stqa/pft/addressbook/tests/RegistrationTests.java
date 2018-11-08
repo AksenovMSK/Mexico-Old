@@ -6,6 +6,7 @@ import ru.stqa.pft.addressbook.appmanager.GenerationData;
 import ru.stqa.pft.addressbook.model.BasicRegistrationData;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class RegistrationTests extends TestBase  {
 
@@ -25,11 +26,11 @@ public class RegistrationTests extends TestBase  {
         app.getRegistrationHelper().agreePersonal();
         app.getRegistrationHelper().submitRegistrationForm1();
 
-//        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
-//                "111111",
-//                "123456q",
-//                "123456q"));
-//        app.getRegistrationHelper().submitRegistrationForm2();
+        app.getRegistrationHelper().fillRegistrationForm2(new BasicRegistrationData(
+                "111111",
+                "123456q",
+                "123456q"));
+        app.getRegistrationHelper().submitRegistrationForm2();
     }
 
 }
