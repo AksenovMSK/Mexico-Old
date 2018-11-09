@@ -67,7 +67,7 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void reversBirthdayDate(BasicRegistrationData data) {
-        String birthdayText = wd.findElement(By.id("Birthday")).getText();
+        String birthdayText = wd.findElement(By.id("Birthday")).getText(); // входной формат dd/mm/yyyy
         String[] subStr;
         String delimeter = "/"; // Разделитель
         subStr = birthdayText.split(delimeter); // Разделения строки str с помощью метода split()
@@ -84,6 +84,6 @@ public class RegistrationHelper extends BaseHelper {
             }
         }
         String yy = yyyy.substring(2);
-        data.setReversBirthDate(yy + mm + dd);
+        data.setReversBirthDate(yy + mm + dd); // выходной формат yy/mm/dd
     }
 }
