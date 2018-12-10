@@ -13,14 +13,16 @@ public class RegistrationHelper extends BaseHelper {
         super(wd);
     }
 
-    public void fillRegistrationForm1(BasicRegistrationData data, GenerationData gData){
+    public void fillRegistrationForm1(BasicRegistrationData data, GenerationData gData) {
         type(By.id("FirstName"), data.getFirstName());
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
         type(By.id("MotherLastName"), data.getMotherName());
         type(By.id("Birthday"), gData.getGenerationDate());
-        type(By.id("MobilePhone"), gData.getGenerationPhone());
+        type(By.xpath("(//input[@id='MobilePhone'])[2]"), gData.getGenerationPhone());
         type(By.id("EmailAddress"), data.getEmailAddress());
+        //wd.findElement(By.xpath("(//input[@id='MobilePhone'])[2]")).click();
+        //type(By.id("MobilePhone"), gData.getGenerationPhone());
     }
 
     public void fillRegistrationForm2(BasicRegistrationData data){
@@ -39,11 +41,11 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void submitRegistrationForm1() {
-        click(By.xpath("//button[@type='submit']"));
+        click(By.xpath("//*[@id=\"regForm\"]/fieldset[2]/button"));
     }
 
     public void submitRegistrationForm2() {
-        click(By.xpath("//button[@type='submit']"));
+        click(By.xpath("//*[@id=\"regForm\"]/button"));
     }
 
     public void initRegistrarionForm1() {
