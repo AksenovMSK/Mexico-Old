@@ -20,9 +20,6 @@ public class RegistrationData {
     private String State;
     private String delegation;
 
-
-
-
     public RegistrationData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;

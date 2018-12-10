@@ -1,7 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.appmanager.GenerationData;
+import ru.stqa.pft.addressbook.appmanager.GenerationHelper;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
 public class RegistrationTests extends TestBase  {
@@ -16,7 +16,7 @@ public class RegistrationTests extends TestBase  {
                         .withFatherName("Testfathername")
                         .withMotherName("Testmothername")
                         .withEmail("test@mail.ru"),
-                new GenerationData());
+                new GenerationHelper());
         app.registration().openDropDownBirthPlace();
         app.registration().selectBirthPlace();
         app.registration().agreeCookies();

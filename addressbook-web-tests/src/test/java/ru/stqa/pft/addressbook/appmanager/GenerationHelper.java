@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Calendar;
 import java.util.List;
 
-public class GenerationData {
+public class GenerationHelper {
 
     public String getGenerationPhone(){
         final int min = 1111111; // Минимальное число для диапазона

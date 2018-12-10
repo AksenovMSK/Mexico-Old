@@ -13,7 +13,7 @@ public class RegistrationHelper extends BaseHelper {
         super(wd);
     }
 
-    public void fillFormStep1(RegistrationData data, GenerationData gData) {
+    public void fillFormStep1(RegistrationData data, GenerationHelper gData) {
         type(By.id("FirstName"), data.getFirstName());
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
@@ -58,7 +58,7 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void selectBirthPlace() {
-        click(By.cssSelector("li[role='treeitem']"), GenerationData.getRandomElementFromList(getBirthPlaceList()));
+        click(By.cssSelector("li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getBirthPlaceList()));
     }
 
     public List<WebElement> getBirthPlaceList(){
@@ -80,7 +80,7 @@ public class RegistrationHelper extends BaseHelper {
                             .withFatherName("Testfathername")
                             .withMotherName("Testmothername")
                             .withEmail("test@mail.ru"),
-                    new GenerationData());
+                    new GenerationHelper());
             openDropDownBirthPlace();
             List<WebElement> birthPlaceList = getBirthPlaceList();
             selectBirthPlace();
