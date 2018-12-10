@@ -10,7 +10,23 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
 
-    public void fillFormStep1(RegistrationData data) {
+    public void fillFormStep1(RegistrationData data, GenerationHelper generationData) {
+
+    }
+
+    public void selectGender() {
+
+    }
+
+    public void selectLivingYears() {
+
+    }
+
+    public void selectLivingMonths() {
+
+    }
+
+    public void submitFormStep1() {
 
     }
 }

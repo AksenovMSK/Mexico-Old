@@ -7,6 +7,7 @@ import ru.stqa.pft.addressbook.model.RegistrationData;
 public class RegistrationTests extends TestBase  {
 
     private RegistrationData data = new RegistrationData();
+    private GenerationHelper generationData = new GenerationHelper();
 
     @Test
     public void testRegistration(){
@@ -19,7 +20,7 @@ public class RegistrationTests extends TestBase  {
                 .withPassword("123456q");
 
         app.registration().initFormStep1();
-        app.registration().fillFormStep1(data, new GenerationHelper());
+        app.registration().fillFormStep1(data, generationData);
         app.registration().openDropDownBirthPlace();
         app.registration().selectBirthPlace();
         app.registration().agreeCookies();
@@ -32,8 +33,18 @@ public class RegistrationTests extends TestBase  {
 
     @Test (enabled = false)
     public void testApplicationForTariff(){
-
-        app.applicationForTariff().fillFormStep1(data);
+            data.withFlat("Testflat")
+                .withHouse("Testhouse")
+                .withStreet("Teststreet")
+                .withPostIndex("45047")
+                .withColony("Testcolony")
+                .withState("Teststate")
+                .withDelegation("Testdelegarion");
+        app.applicationForTariff().selectGender();
+        app.applicationForTariff().fillFormStep1(data, generationData);
+        app.applicationForTariff().selectLivingYears();
+        app.applicationForTariff().selectLivingMonths();
+        app.applicationForTariff().submitFormStep1();
     }
 
     @Test (enabled = false)
