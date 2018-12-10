@@ -6,6 +6,9 @@ public class BasicRegistrationData {
     private String secondName;
     private String fatherName;
     private String motherName;
+
+
+    private String birthDay;
     private String emailAddress;
     private String smsCode;
     private String password;
@@ -31,6 +34,9 @@ public class BasicRegistrationData {
         this.confirmationPassword = confirmationPassword;
     }
 
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
 
 
     public String getFirstName() {
@@ -48,6 +54,8 @@ public class BasicRegistrationData {
     public String getMotherName() {
         return motherName;
     }
+
+    public String getBirthDay() { return birthDay; }
 
     public String getEmailAddress() {
         return emailAddress;

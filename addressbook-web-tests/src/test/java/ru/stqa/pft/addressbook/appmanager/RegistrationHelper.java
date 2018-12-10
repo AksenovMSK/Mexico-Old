@@ -18,7 +18,8 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
         type(By.id("MotherLastName"), data.getMotherName());
-        type(By.id("Birthday"), gData.getGenerationDate());
+        data.setBirthDay(gData.getGenerationDate());
+        type(By.id("Birthday"), data.getBirthDay());
         type(By.xpath("(//input[@id='MobilePhone'])[2]"), gData.getGenerationPhone());
         type(By.id("EmailAddress"), data.getEmailAddress());
         //wd.findElement(By.xpath("(//input[@id='MobilePhone'])[2]")).click();

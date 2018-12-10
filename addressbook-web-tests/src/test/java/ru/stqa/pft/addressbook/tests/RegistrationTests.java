@@ -6,7 +6,6 @@ import ru.stqa.pft.addressbook.appmanager.GenerationData;
 import ru.stqa.pft.addressbook.model.BasicRegistrationData;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class RegistrationTests extends TestBase  {
 
