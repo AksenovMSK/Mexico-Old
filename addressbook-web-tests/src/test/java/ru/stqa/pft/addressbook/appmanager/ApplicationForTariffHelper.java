@@ -37,6 +37,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectLivingYears() {
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset[2]/div/div[5]/div[1]/div/span[1]/span[1]/span")); //для открытия дропдауна
         click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getYearsList()));
     }
 
@@ -46,6 +47,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectLivingMonths() {
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset[2]/div/div[5]/div[2]/div/span[1]/span[1]/span")); //для открытия дропдауна
         click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getMonthsList()));
     }
 

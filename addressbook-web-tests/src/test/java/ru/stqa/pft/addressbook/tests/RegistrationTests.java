@@ -41,8 +41,8 @@ public class RegistrationTests extends TestBase  {
                 .withDelegation("Testdelegarion");
         app.applicationForTariff().selectGender();
         app.applicationForTariff().fillFormStep1(data, generationData);
-//        app.applicationForTariff().selectLivingYears();
-//        app.applicationForTariff().selectLivingMonths();
+        app.applicationForTariff().selectLivingYears();
+        app.applicationForTariff().selectLivingMonths();
         app.applicationForTariff().submitFormStep1();
     }
 
