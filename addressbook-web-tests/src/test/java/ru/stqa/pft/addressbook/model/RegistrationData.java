@@ -1,39 +1,54 @@
 package ru.stqa.pft.addressbook.model;
 
-public class BasicRegistrationData {
+public class RegistrationData {
 
     private String firstName;
     private String secondName;
     private String fatherName;
     private String motherName;
     private String birthDay;
-    private String emailAddress;
+    private String email;
     private String smsCode;
     private String password;
-    private String confirmationPassword;
 
-    public BasicRegistrationData(String firstName,
-                                 String secondName,
-                                 String fatherName,
-                                 String motherName,
-                                 String emailAddress){
+    public RegistrationData withFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
+    }
+
+    public RegistrationData withSecondName(String secondName) {
         this.secondName = secondName;
+        return this;
+    }
+
+    public RegistrationData withFatherName(String fatherName) {
         this.fatherName = fatherName;
+        return this;
+    }
+
+    public RegistrationData withMotherName(String motherName) {
         this.motherName = motherName;
-        this.emailAddress = emailAddress;;
+        return this;
     }
 
-    public BasicRegistrationData(String smsCode,
-                                 String password,
-                                 String confirmationPassword){
-        this.smsCode = smsCode;
-        this.password = password;
-        this.confirmationPassword = confirmationPassword;
-    }
-
-    public void setBirthDay(String birthDay) {
+    public RegistrationData withBirthDay(String birthDay) {
         this.birthDay = birthDay;
+        return this;
+    }
+
+    public RegistrationData withEmail(String emailAddress) {
+        this.email = emailAddress;
+        return this;
+    }
+
+    public RegistrationData withSmsCode(String smsCode) {
+        this.smsCode = smsCode;
+        return this;
+    }
+
+    public RegistrationData withPassword(String password) {
+        this.password = password;
+        return this;
     }
 
 
@@ -55,8 +70,8 @@ public class BasicRegistrationData {
 
     public String getBirthDay() { return birthDay; }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmail() {
+        return email;
     }
 
     public String getSmsCode() {
@@ -67,8 +82,5 @@ public class BasicRegistrationData {
         return password;
     }
 
-    public String getConfirmationPassword() {
-        return confirmationPassword;
-    }
 }
 

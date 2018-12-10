@@ -3,7 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import ru.stqa.pft.addressbook.model.BasicRegistrationData;
+import ru.stqa.pft.addressbook.model.RegistrationData;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -13,24 +13,24 @@ public class RegistrationHelper extends BaseHelper {
         super(wd);
     }
 
-    public void fillRegistrationForm1(BasicRegistrationData data, GenerationData gData) {
+    public void fillRegistrationForm1(RegistrationData data, GenerationData gData) {
         type(By.id("FirstName"), data.getFirstName());
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
         type(By.id("MotherLastName"), data.getMotherName());
-        data.setBirthDay(gData.getGenerationDate());
+        data.withBirthDay(gData.getGenerationDate());
         type(By.id("Birthday"), data.getBirthDay());
         type(By.xpath("(//input[@id='MobilePhone'])[2]"), gData.getGenerationPhone());
-        type(By.id("EmailAddress"), data.getEmailAddress());
+        type(By.id("EmailAddress"), data.getEmail());
         //wd.findElement(By.xpath("(//input[@id='MobilePhone'])[2]")).click();
         //type(By.id("MobilePhone"), gData.getGenerationPhone());
     }
 
-    public void fillRegistrationForm2(BasicRegistrationData data){
+    public void fillRegistrationForm2(RegistrationData data){
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         type(By.id("SmsCode"), data.getSmsCode());
         type(By.id("Password"), data.getPassword());
-        type(By.id("ConfirmPassword"), data.getConfirmationPassword());
+        type(By.id("ConfirmPassword"), data.getPassword());
     }
 
     public void agreeCookies() {
@@ -73,12 +73,14 @@ public class RegistrationHelper extends BaseHelper {
     public void generationTestClients(int count){
         for(int i = 0; i < count; i++){
             initRegistrarionForm1();
-            fillRegistrationForm1(new BasicRegistrationData(
-                    "Testname",
-                    "Testsecondname",
-                    "TestFathername",
-                    "TestMothername",
-                    "test@mail.ru"), new GenerationData());
+            fillRegistrationForm1(
+                    new RegistrationData()
+                            .withFirstName("Testname")
+                            .withSecondName("Testsecondname")
+                            .withFatherName("Testfathername")
+                            .withMotherName("Testmothername")
+                            .withEmail("test@mail.ru"),
+                    new GenerationData());
             openDropDownselectBirthPlace();
             List<WebElement> birthPlaceList = getBirthPlaceList();
             selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
@@ -86,10 +88,10 @@ public class RegistrationHelper extends BaseHelper {
             agreePersonal();
             submitRegistrationForm1();
 
-            fillRegistrationForm2(new BasicRegistrationData(
-                    "111111",
-                    "123456q",
-                    "123456q"));
+            fillRegistrationForm2(
+                    new RegistrationData()
+                            .withSmsCode("111111")
+                            .withPassword("123456q"));
             submitRegistrationForm2();
             loguot();
         }
