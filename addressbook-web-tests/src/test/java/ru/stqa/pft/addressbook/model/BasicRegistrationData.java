@@ -6,8 +6,6 @@ public class BasicRegistrationData {
     private String secondName;
     private String fatherName;
     private String motherName;
-
-
     private String birthDay;
     private String emailAddress;
     private String smsCode;
