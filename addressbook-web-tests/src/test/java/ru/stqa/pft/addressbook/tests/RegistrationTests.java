@@ -12,6 +12,8 @@ public class RegistrationTests extends TestBase  {
 
     @Test
     public void testRegistration(){
+        app.getRegistrationHelper().generationTestClients(10);
+
         app.getRegistrationHelper().initRegistrarionForm1();
         app.getRegistrationHelper().fillRegistrationForm1(new BasicRegistrationData(
                 "Testname",

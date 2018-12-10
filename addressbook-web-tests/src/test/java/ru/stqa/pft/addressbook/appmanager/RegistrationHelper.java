@@ -64,4 +64,33 @@ public class RegistrationHelper extends BaseHelper {
         List<WebElement> elements = wd.findElements(By.cssSelector("li[role='treeitem']"));
         return elements;
     }
+
+    public void loguot() {
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[1]/div/div/div[2]/a[1]/span"));
+    }
+
+    public void generationTestClients(int count){
+        for(int i = 0; i < count; i++){
+            initRegistrarionForm1();
+            fillRegistrationForm1(new BasicRegistrationData(
+                    "Testname",
+                    "Testsecondname",
+                    "TestFathername",
+                    "TestMothername",
+                    "test@mail.ru"), new GenerationData());
+            openDropDownselectBirthPlace();
+            List<WebElement> birthPlaceList = getBirthPlaceList();
+            selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
+            agreeCookies();
+            agreePersonal();
+            submitRegistrationForm1();
+
+            fillRegistrationForm2(new BasicRegistrationData(
+                    "111111",
+                    "123456q",
+                    "123456q"));
+            submitRegistrationForm2();
+            loguot();
+        }
+    }
 }
