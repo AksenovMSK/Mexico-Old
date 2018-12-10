@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.WebElement;
+import ru.stqa.pft.addressbook.model.RegistrationData;
 
 import java.util.Calendar;
 import java.util.List;
@@ -85,5 +86,13 @@ public class GenerationHelper {
     public static int getRandomElementFromList(List<WebElement> birthPlaceList){
         int randomBirthPlaceNumber = 1 + (int)(Math.random() * birthPlaceList.size() - 1);
         return randomBirthPlaceNumber;
+    }
+
+    public String getGenerationCurp(RegistrationData data) {
+        return null;
+    }
+
+    public String getGenerationRfc(RegistrationData data) {
+        return null;
     }
 }
