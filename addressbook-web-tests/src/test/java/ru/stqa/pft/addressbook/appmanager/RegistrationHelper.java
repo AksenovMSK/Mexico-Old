@@ -13,7 +13,7 @@ public class RegistrationHelper extends BaseHelper {
         super(wd);
     }
 
-    public void fillRegistrationForm1(RegistrationData data, GenerationData gData) {
+    public void fillFormStep1(RegistrationData data, GenerationData gData) {
         type(By.id("FirstName"), data.getFirstName());
         type(By.id("SecondName"), data.getSecondName());
         type(By.id("FatherLastName"), data.getFatherName());
@@ -26,7 +26,7 @@ public class RegistrationHelper extends BaseHelper {
         //type(By.id("MobilePhone"), gData.getGenerationPhone());
     }
 
-    public void fillRegistrationForm2(RegistrationData data){
+    public void fillFormStep2(RegistrationData data){
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         type(By.id("SmsCode"), data.getSmsCode());
         type(By.id("Password"), data.getPassword());
@@ -41,24 +41,24 @@ public class RegistrationHelper extends BaseHelper {
         click(By.xpath("//div[5]/div/label"));
     }
 
-    public void submitRegistrationForm1() {
+    public void submitFormStep1() {
         click(By.xpath("//*[@id=\"regForm\"]/fieldset[2]/button"));
     }
 
-    public void submitRegistrationForm2() {
+    public void submitFormStep2() {
         click(By.xpath("//*[@id=\"regForm\"]/button"));
     }
 
-    public void initRegistrarionForm1() {
+    public void initFormStep1() {
         click(By.linkText("Crea tu perfil"));
     }
 
-    public void openDropDownselectBirthPlace(){
+    public void openDropDownBirthPlace(){
         click(By.cssSelector("span.selection"));
     }
 
-    public void selectBirthPlace(int index) {
-        click(By.cssSelector("li[role='treeitem']"), index);
+    public void selectBirthPlace() {
+        click(By.cssSelector("li[role='treeitem']"), GenerationData.getRandomElementFromList(getBirthPlaceList()));
     }
 
     public List<WebElement> getBirthPlaceList(){
@@ -72,8 +72,8 @@ public class RegistrationHelper extends BaseHelper {
 
     public void generationTestClients(int count){
         for(int i = 0; i < count; i++){
-            initRegistrarionForm1();
-            fillRegistrationForm1(
+            initFormStep1();
+            fillFormStep1(
                     new RegistrationData()
                             .withFirstName("Testname")
                             .withSecondName("Testsecondname")
@@ -81,18 +81,18 @@ public class RegistrationHelper extends BaseHelper {
                             .withMotherName("Testmothername")
                             .withEmail("test@mail.ru"),
                     new GenerationData());
-            openDropDownselectBirthPlace();
+            openDropDownBirthPlace();
             List<WebElement> birthPlaceList = getBirthPlaceList();
-            selectBirthPlace(GenerationData.getRandomElementFromList(birthPlaceList));
+            selectBirthPlace();
             agreeCookies();
             agreePersonal();
-            submitRegistrationForm1();
+            submitFormStep1();
 
-            fillRegistrationForm2(
+            fillFormStep2(
                     new RegistrationData()
                             .withSmsCode("111111")
                             .withPassword("123456q"));
-            submitRegistrationForm2();
+            submitFormStep2();
             loguot();
         }
     }

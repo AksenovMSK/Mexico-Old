@@ -57,6 +57,6 @@ public class ApplicationManager {
     }
   }
 
-  public RegistrationHelper getRegistrationHelper() { return registrationHelper;
+  public RegistrationHelper registration() { return registrationHelper;
   }
 }
