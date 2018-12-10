@@ -10,7 +10,7 @@ public class RegistrationTests extends TestBase  {
     private GenerationHelper generationData = new GenerationHelper();
 
     @Test
-    public void testRegistration(){
+    public void testRegistration1(){
             data.withFirstName("Testname")
                 .withSecondName("Testsecondname")
                 .withFatherName("Testfathername")
@@ -21,7 +21,6 @@ public class RegistrationTests extends TestBase  {
 
         app.registration().initFormStep1();
         app.registration().fillFormStep1(data, generationData);
-        app.registration().openDropDownBirthPlace();
         app.registration().selectBirthPlace();
         app.registration().agreeCookies();
         app.registration().agreePersonal();
@@ -31,8 +30,8 @@ public class RegistrationTests extends TestBase  {
         app.registration().submitFormStep2();
     }
 
-    @Test (enabled = false)
-    public void testApplicationForTariff(){
+    @Test (enabled = true) //testRegistration2
+    public void testRegistration2(){
             data.withFlat("Testflat")
                 .withHouse("Testhouse")
                 .withStreet("Teststreet")
@@ -42,8 +41,8 @@ public class RegistrationTests extends TestBase  {
                 .withDelegation("Testdelegarion");
         app.applicationForTariff().selectGender();
         app.applicationForTariff().fillFormStep1(data, generationData);
-        app.applicationForTariff().selectLivingYears();
-        app.applicationForTariff().selectLivingMonths();
+//        app.applicationForTariff().selectLivingYears();
+//        app.applicationForTariff().selectLivingMonths();
         app.applicationForTariff().submitFormStep1();
     }
 

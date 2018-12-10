@@ -15,8 +15,8 @@ public class ApplicationForTariffHelper extends BaseHelper {
 
 
     public void fillFormStep1(RegistrationData data, GenerationHelper gData) {
-        type(By.id("Curp"), gData.getGenerationCurp(data));
-        type(By.id("Rfc"), gData.getGenerationRfc(data));
+//        type(By.id("Curp"), gData.getGenerationCurp(data));
+ //       type(By.id("Rfc"), gData.getGenerationRfc(data));
         type(By.id("RegAddress_House"), data.getHouse());
         type(By.id("RegAddress_Flat"), data.getFlat());
         type(By.id("RegAddress_StreetName"), data.getStreet());
@@ -27,6 +27,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectGender() {
+        click(By.cssSelector("span.selection")); //для открытия дропдауна
         click(By.cssSelector("#select2-Gender-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getGenderList()));
     }
 
@@ -54,6 +55,6 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void submitFormStep1() {
-
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/div/button"));
     }
 }

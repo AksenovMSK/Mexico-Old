@@ -53,11 +53,8 @@ public class RegistrationHelper extends BaseHelper {
         click(By.linkText("Crea tu perfil"));
     }
 
-    public void openDropDownBirthPlace(){
-        click(By.cssSelector("span.selection"));
-    }
-
     public void selectBirthPlace() {
+        click(By.cssSelector("span.selection"));
         click(By.cssSelector("li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getBirthPlaceList()));
     }
 
@@ -81,7 +78,6 @@ public class RegistrationHelper extends BaseHelper {
                             .withMotherName("Testmothername")
                             .withEmail("test@mail.ru"),
                     new GenerationHelper());
-            openDropDownBirthPlace();
             List<WebElement> birthPlaceList = getBirthPlaceList();
             selectBirthPlace();
             agreeCookies();
