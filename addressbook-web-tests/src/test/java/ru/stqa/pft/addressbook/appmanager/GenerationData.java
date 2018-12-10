@@ -8,10 +8,10 @@ import java.util.List;
 public class GenerationData {
 
     public String getGenerationPhone(){
-        final int min = 11111111; // Минимальное число для диапазона
-        final int max = 99999999; // Максимальное число для диапазона
+        final int min = 1111111; // Минимальное число для диапазона
+        final int max = 9999999; // Максимальное число для диапазона
         final int rnd = rnd(min, max);
-        return "55" + rnd;
+        return "551" + rnd;
     }
 
     public static int rnd(int min, int max)
