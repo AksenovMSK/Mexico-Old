@@ -27,27 +27,30 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectGender() {
-        click(By.cssSelector(""), GenerationHelper.getRandomElementFromList(getGenderList()));
+        click(By.cssSelector("#select2-Gender-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getGenderList()));
     }
 
     private List<WebElement> getGenderList() {
-        return null;
+        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-Gender-results li[role='treeitem']"));
+        return elements;
     }
 
     public void selectLivingYears() {
-        click(By.cssSelector(""), GenerationHelper.getRandomElementFromList(getYearsList()));
+        click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getYearsList()));
     }
 
     private List<WebElement> getYearsList() {
-        return null;
+        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"));
+        return elements;
     }
 
     public void selectLivingMonths() {
-        click(By.cssSelector(""), GenerationHelper.getRandomElementFromList(getMonthsList()));
+        click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getMonthsList()));
     }
 
     private List<WebElement> getMonthsList() {
-        return null;
+        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"));
+        return elements;
     }
 
     public void submitFormStep1() {
