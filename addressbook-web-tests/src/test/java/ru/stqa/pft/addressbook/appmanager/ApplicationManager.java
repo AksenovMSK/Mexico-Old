@@ -15,6 +15,7 @@ public class ApplicationManager {
   public WebDriver wd;
 
   private RegistrationHelper registrationHelper;
+  private ApplicationForTariffHelper applicationForTariffHelper;
   private String browser;
 
   public ApplicationManager(String browser){
@@ -33,6 +34,7 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get("http://mx-stg.dc-lime.ru/");
     registrationHelper = new RegistrationHelper(wd);
+    applicationForTariffHelper = new ApplicationForTariffHelper(wd);
   }
 
   public void stop() {
@@ -58,5 +60,9 @@ public class ApplicationManager {
   }
 
   public RegistrationHelper registration() { return registrationHelper;
+  }
+
+  public ApplicationForTariffHelper applicationForTariff() {
+    return applicationForTariffHelper;
   }
 }
