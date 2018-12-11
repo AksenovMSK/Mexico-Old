@@ -7,6 +7,7 @@ public class RegistrationData {
     private String fatherName;
     private String motherName;
     private String birthDay;
+    private String mobile;
     private String email;
     private String smsCode;
     private String password;
@@ -43,6 +44,11 @@ public class RegistrationData {
 
     public RegistrationData withBirthDay(String birthDay) {
         this.birthDay = birthDay;
+        return this;
+    }
+
+    public RegistrationData withMobile(String mobile) {
+        this.mobile = mobile;
         return this;
     }
 
@@ -128,6 +134,10 @@ public class RegistrationData {
     }
 
     public String getBirthDay() { return birthDay; }
+
+    public String getMobile() {
+        return mobile;
+    }
 
     public String getEmail() {
         return email;

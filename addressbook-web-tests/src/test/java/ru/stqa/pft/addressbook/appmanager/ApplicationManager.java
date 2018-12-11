@@ -17,12 +17,16 @@ public class ApplicationManager {
   private RegistrationHelper registrationHelper;
   private ApplicationForTariffHelper applicationForTariffHelper;
   private String browser;
+  private DbHelper dbHelper;
 
   public ApplicationManager(String browser){
     this.browser = browser;
   }
 
   public void init() {
+
+    dbHelper = new DbHelper();
+
     if (browser.equals(BrowserType.FIREFOX)){
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)){
@@ -65,4 +69,6 @@ public class ApplicationManager {
   public ApplicationForTariffHelper applicationForTariff() {
     return applicationForTariffHelper;
   }
+
+  public DbHelper db(){return dbHelper;}
 }
