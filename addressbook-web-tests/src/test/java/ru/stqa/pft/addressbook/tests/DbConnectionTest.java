@@ -7,13 +7,27 @@ import java.sql.*;
 
 public class DbConnectionTest {
 
-    @Test 
+    @Test
     public void dbConnectionTest() {
         Connection conn = null;
         RegistrationData data = new RegistrationData();
 
+        try(PreparedStatement pstmt = conn.prepareStatement("SELECT LastName, FirstName FROM Person.Contact WHERE LastName = ?");) {
+            pstmt.setString(1, "Smith");
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                System.out.println(rs.getString("LastName") + ", " + rs.getString("FirstName"));
+            }
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         try {
-            conn = DriverManager.getConnection("jdbc:mysql:192.168.88.151,63173?user=fuse8datareader&password=fuse8datareader&serverTimezone=UTC");
+            //conn = DriverManager.getConnection("jdbc:sqlserver://192.168.88.151,63173?user=fuse8datareader&password=fuse8datareader&serverTimezone=UTC");
+            conn = DriverManager.getConnection("jdbc:sqlserver://192.168.88.151,63173?user=fuse8datareader&password=fuse8datareader&serverTimezone=UTC");
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT dbo.Users.MobilePhone, dbo.UserProfiles.Birthday\n" +
                     "FROM     dbo.UserTariffHistory INNER JOIN\n" +

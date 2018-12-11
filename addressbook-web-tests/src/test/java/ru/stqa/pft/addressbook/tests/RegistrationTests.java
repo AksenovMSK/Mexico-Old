@@ -10,11 +10,12 @@ import java.text.ParseException;
 
 public class RegistrationTests extends TestBase  {
 
-    private RegistrationData data = new RegistrationData();
-    private GenerationHelper generationData = new GenerationHelper();
+    @Test (enabled = true)
+    public void testRegistration(){
 
-    @Test
-    public void testRegistration1(){
+        RegistrationData data = new RegistrationData();
+        GenerationHelper generationData = new GenerationHelper();
+
             data.withFirstName("Testname")
                 .withSecondName("Testsecondname")
                 .withFatherName("Testfathername")
@@ -32,10 +33,36 @@ public class RegistrationTests extends TestBase  {
 
         app.registration().fillFormStep2(data);
         app.registration().submitFormStep2();
+
+        Assert.assertTrue(app.isElementPresent(By.name("Curp")));
+
+        app.registration().loguot();
     }
 
-    @Test (enabled = true) //testRegistration2
-    public void testRegistration2() throws ParseException {
+    @Test (enabled = true)
+    public void testApplicationForTariff() throws ParseException {
+
+        RegistrationData data = new RegistrationData();
+        GenerationHelper generationData = new GenerationHelper();
+
+        data.withFirstName("Testname")
+                .withSecondName("Testsecondname")
+                .withFatherName("Testfathername")
+                .withMotherName("Testmothername")
+                .withEmail("test@mail.ru")
+                .withSmsCode("111111")
+                .withPassword("123456q");
+
+        app.registration().initFormStep1();
+        app.registration().fillFormStep1(data, generationData);
+        app.registration().selectBirthPlace();
+        app.registration().agreeCookies();
+        app.registration().agreePersonal();
+        app.registration().submitFormStep1();
+
+        app.registration().fillFormStep2(data);
+        app.registration().submitFormStep2();
+
             data.withFlat("Testflat")
                 .withHouse("Testhouse")
                 .withStreet("Teststreet")
@@ -43,6 +70,7 @@ public class RegistrationTests extends TestBase  {
                 .withColony("Testcolony")
                 .withState("Teststate")
                 .withDelegation("Testdelegarion");
+
         app.applicationForTariff().selectGender(data);
         app.applicationForTariff().fillFormStep1(data, generationData);
         app.applicationForTariff().selectLivingYears();
@@ -50,11 +78,7 @@ public class RegistrationTests extends TestBase  {
         app.applicationForTariff().submitFormStep1();
 
         Assert.assertTrue(app.isElementPresent(By.name("Income")));
-    }
 
-    @Test (enabled = false)
-    public void testGenerationClients(){
-        app.registration().generationTestClients(10);
+        app.registration().loguot();
     }
-
 }
