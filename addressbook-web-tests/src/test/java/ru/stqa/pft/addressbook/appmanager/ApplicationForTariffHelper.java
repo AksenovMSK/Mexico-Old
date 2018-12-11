@@ -63,4 +63,16 @@ public class ApplicationForTariffHelper extends BaseHelper {
     public void submitFormStep1() {
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/div/button"));
     }
+
+    public void selectEducation() {
+
+    }
+
+    public void selectEmployment() {
+
+    }
+
+    public void fillFormStep2(RegistrationData data) {
+
+    }
 }

@@ -79,6 +79,13 @@ public class RegistrationTests extends TestBase  {
 
         Assert.assertTrue(app.isElementPresent(By.name("Income")));
 
+//            data.withIncome("")
+//                .withNextIncomeDate("");
+//
+//        app.applicationForTariff().selectEducation();
+//        app.applicationForTariff().selectEmployment();
+//        app.applicationForTariff().fillFormStep2(data);
+
         app.registration().loguot();
     }
 }

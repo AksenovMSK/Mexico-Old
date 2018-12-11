@@ -22,6 +22,18 @@ public class RegistrationData {
     private String State;
     private String delegation;
 
+    private String organizationName;
+    private String organizationFlat;
+    private String organizationHouse;
+    private String organizationStreet;
+    private String organizationPostIndex;
+    private String organizationColony;
+    private String organizationState;
+    private String organizationDelegation;
+
+    private String income;
+    private String nextIncomeDate;
+
     public RegistrationData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
@@ -116,6 +128,59 @@ public class RegistrationData {
         this.delegation = delegation;
         return this;
     }
+
+    public RegistrationData withOrganizationName(String organizationName) {
+        this.organizationName = organizationName;
+        return this;
+    }
+
+    public RegistrationData withOrganizationhouse(String organizationHouse) {
+        this.organizationHouse = organizationHouse;
+        return this;
+    }
+
+    public RegistrationData withOrganizationFlat(String organizationFlat) {
+        this.organizationFlat = organizationFlat;
+        return this;
+    }
+
+    public RegistrationData withOrganizationStreet(String organizationStreet) {
+        this.organizationStreet = organizationStreet;
+        return this;
+    }
+
+    public RegistrationData withOrganizationPostIndex(String organizationPostIndex) {
+        this.organizationPostIndex = organizationPostIndex;
+        return this;
+    }
+
+    public RegistrationData withOrganizationColony(String organizationColony) {
+        this.organizationColony = organizationColony;
+        return this;
+    }
+
+    public RegistrationData withOrganizationState(String organizationState) {
+        this.organizationState = organizationState;
+        return this;
+    }
+
+    public RegistrationData withOrganizationDelegation(String organizationDelegation) {
+        this.organizationDelegation = organizationDelegation;
+        return this;
+    }
+
+    public RegistrationData withIncome(String income) {
+        this.income = income;
+        return this;
+    }
+
+    public RegistrationData withNextIncomeDate(String nextIncomeDate) {
+        this.nextIncomeDate = nextIncomeDate;
+        return this;
+    }
+
+
+
 
     public String getFirstName() {
         return firstName;
