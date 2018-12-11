@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.GenerationHelper;
 import ru.stqa.pft.addressbook.model.RegistrationData;
@@ -41,11 +43,13 @@ public class RegistrationTests extends TestBase  {
                 .withColony("Testcolony")
                 .withState("Teststate")
                 .withDelegation("Testdelegarion");
-        app.applicationForTariff().selectGender();
+        app.applicationForTariff().selectGender(data);
         app.applicationForTariff().fillFormStep1(data, generationData);
         app.applicationForTariff().selectLivingYears();
         app.applicationForTariff().selectLivingMonths();
         app.applicationForTariff().submitFormStep1();
+
+        Assert.assertTrue(app.isElementPresent(By.name("Income")));
     }
 
     @Test (enabled = false)

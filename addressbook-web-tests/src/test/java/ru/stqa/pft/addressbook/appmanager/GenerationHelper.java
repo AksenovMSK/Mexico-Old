@@ -34,9 +34,16 @@ public class GenerationHelper {
     }
 
     public String getGenerationCurp(RegistrationData data) throws ParseException {
-        Date oldFormatDate = new SimpleDateFormat("ddMMyyyy").parse(data.getBirthDay());
-        String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
-        String curp = "BADD" + newFormatDate.substring(2) + "HCMLNS09";
+        String curp = null;
+        if(data.getGender() == 1){
+            Date oldFormatDate = new SimpleDateFormat("ddMMyyyy").parse(data.getBirthDay());
+            String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
+            curp = "BADD" + newFormatDate.substring(2) + "HCMLNS09";
+        } else {
+            Date oldFormatDate = new SimpleDateFormat("ddMMyyyy").parse(data.getBirthDay());
+            String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
+            curp = "BADD" + newFormatDate.substring(2) + "MVZRRL04";
+        }
         return curp;
     }
 

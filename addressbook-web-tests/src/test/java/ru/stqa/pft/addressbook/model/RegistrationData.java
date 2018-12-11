@@ -10,6 +10,7 @@ public class RegistrationData {
     private String email;
     private String smsCode;
     private String password;
+    private int gender;
     private String curp;
     private String rfc;
     private String flat;
@@ -57,6 +58,11 @@ public class RegistrationData {
 
     public RegistrationData withPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public RegistrationData withGender(int gender) {
+        this.gender = gender;
         return this;
     }
 
@@ -133,6 +139,10 @@ public class RegistrationData {
 
     public String getPassword() {
         return password;
+    }
+
+    public int getGender() {
+        return gender;
     }
 
     public String getCurp() {

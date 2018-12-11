@@ -27,9 +27,12 @@ public class ApplicationForTariffHelper extends BaseHelper {
         type(By.id("RegAddress_Municipality"), data.getDelegation());
     }
 
-    public void selectGender() {
+    public void selectGender(RegistrationData data) {
+
         click(By.cssSelector("span.selection")); //для открытия дропдауна
-        click(By.cssSelector("#select2-Gender-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getGenderList()));
+        int gender = GenerationHelper.getRandomElementFromList(getGenderList());
+        click(By.cssSelector("#select2-Gender-results li[role='treeitem']"), gender);
+        data.withGender(gender);
     }
 
     private List<WebElement> getGenderList() {
