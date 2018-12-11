@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
+import java.text.ParseException;
 import java.util.List;
 
 public class ApplicationForTariffHelper extends BaseHelper {
@@ -14,9 +15,9 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
 
-    public void fillFormStep1(RegistrationData data, GenerationHelper gData) {
-//        type(By.id("Curp"), gData.getGenerationCurp(data));
- //       type(By.id("Rfc"), gData.getGenerationRfc(data));
+    public void fillFormStep1(RegistrationData data, GenerationHelper gData) throws ParseException {
+        type(By.id("Curp"), gData.getGenerationCurp(data));
+        type(By.id("Rfc"), gData.getGenerationRfc(data));
         type(By.id("RegAddress_House"), data.getHouse());
         type(By.id("RegAddress_Flat"), data.getFlat());
         type(By.id("RegAddress_StreetName"), data.getStreet());

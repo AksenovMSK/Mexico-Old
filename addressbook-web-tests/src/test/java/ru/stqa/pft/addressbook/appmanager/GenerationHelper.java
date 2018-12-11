@@ -3,7 +3,10 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class GenerationHelper {
@@ -88,11 +91,17 @@ public class GenerationHelper {
         return randomBirthPlaceNumber;
     }
 
-    public String getGenerationCurp(RegistrationData data) {
-        return null;
+    public String getGenerationCurp(RegistrationData data) throws ParseException {
+        Date oldFormatDate = new SimpleDateFormat("ddMMyyyy").parse(data.getBirthDay());
+        String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
+        String curp = "BADD" + newFormatDate.substring(2) + "HCMLNS09";
+        return curp;
     }
 
-    public String getGenerationRfc(RegistrationData data) {
-        return null;
+    public String getGenerationRfc(RegistrationData data) throws ParseException {
+        Date oldFormatDate = new SimpleDateFormat("ddMMyyyy").parse(data.getBirthDay());
+        String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
+        String rfc = "BADD" + newFormatDate.substring(2) + "S09";
+        return rfc;
     }
 }

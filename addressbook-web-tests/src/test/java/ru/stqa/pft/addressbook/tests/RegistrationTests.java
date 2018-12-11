@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.GenerationHelper;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
+import java.text.ParseException;
+
 public class RegistrationTests extends TestBase  {
 
     private RegistrationData data = new RegistrationData();
@@ -31,7 +33,7 @@ public class RegistrationTests extends TestBase  {
     }
 
     @Test (enabled = true) //testRegistration2
-    public void testRegistration2(){
+    public void testRegistration2() throws ParseException {
             data.withFlat("Testflat")
                 .withHouse("Testhouse")
                 .withStreet("Teststreet")

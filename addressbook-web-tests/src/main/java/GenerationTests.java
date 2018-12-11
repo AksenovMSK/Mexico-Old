@@ -1,14 +1,26 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class GenerationTests {
 
-    public static void main(String[] args) {
-        final int min = 11111111; // Минимальное число для диапазона
-        final int max = 99999999; // Максимальное число для диапазона
+    public static void main(String[] args) throws ParseException {
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("рандомный телефон: 55" + rnd(min, max) + " рандомный год рожления: " + randomDOB());
-        }
+        String oldstring = "11011984";
+        Date date = new SimpleDateFormat("ddMMyyyy").parse(oldstring);
+
+        String newstring = new SimpleDateFormat("yyyyMMdd").format(date);
+        System.out.println(newstring); // 2011-01-18
+
+
+
+//        final int min = 11111111; // Минимальное число для диапазона
+//        final int max = 99999999; // Максимальное число для диапазона
+//
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println("рандомный телефон: 55" + rnd(min, max) + " рандомный год рожления: " + randomDOB());
+//        }
     }
 
     public static int rnd(int min, int max)
