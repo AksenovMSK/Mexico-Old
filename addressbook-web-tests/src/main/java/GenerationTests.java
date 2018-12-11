@@ -7,12 +7,29 @@ public class GenerationTests {
 
     public static void main(String[] args) throws ParseException {
 
-        String oldstring = "11011984";
-        Date date = new SimpleDateFormat("ddMMyyyy").parse(oldstring);
+    for(int i = 0; i < 10; i++){
+        int yyyy = random(1930, 1999);
+        int mm = random(1, 12);
+        int dd = random(1, 28);
+        String month = null;
+        String day = null;
+        if(mm < 10){
+            month = "0" + mm;
+        }
+        if(dd < 10){
+            day = "0" + dd;
+        }
 
-        String newstring = new SimpleDateFormat("yyyyMMdd").format(date);
-        System.out.println(newstring); // 2011-01-18
-
+        if(month == null && day == null){
+            System.out.println("" + dd + "" + mm + "" + yyyy);
+        } else if (month != null && day == null){
+            System.out.println("" + dd + "" + month + "" + yyyy);
+        } else if(month == null && day != null){
+            System.out.println("" + day + "" + mm + "" + yyyy);
+        } else if(month != null && day != null){
+            System.out.println("" + day + "" + month + "" + yyyy);
+        }
+    }
 
 
 //        final int min = 11111111; // Минимальное число для диапазона
