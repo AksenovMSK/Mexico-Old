@@ -2,11 +2,9 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
 import java.text.ParseException;
-import java.util.List;
 
 public class ApplicationForTariffHelper extends BaseHelper {
 
@@ -16,6 +14,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
 
 
     public void fillFormStep1(RegistrationData data, GenerationHelper gData) throws ParseException {
+        selectGender(data);
         type(By.id("Curp"), gData.getGenerationCurp(data));
         type(By.id("Rfc"), gData.getGenerationRfc(data));
         type(By.id("RegAddress_House"), data.getHouse());
@@ -25,39 +24,40 @@ public class ApplicationForTariffHelper extends BaseHelper {
         type(By.id("RegAddress_Colony"), data.getColony());
         type(By.id("RegAddress_State"), data.getState());
         type(By.id("RegAddress_Municipality"), data.getDelegation());
+        selectLivingYears();
+        selectLivingMonths();
     }
 
     public void selectGender(RegistrationData data) {
 
         click(By.cssSelector("span.selection")); //для открытия дропдауна
-        int gender = GenerationHelper.getRandomElementFromList(getGenderList());
+        int gender = GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-Gender-results li[role='treeitem']")));
         click(By.cssSelector("#select2-Gender-results li[role='treeitem']"), gender);
         data.withGender(gender);
     }
 
-    private List<WebElement> getGenderList() {
-        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-Gender-results li[role='treeitem']"));
-        return elements;
-    }
-
     public void selectLivingYears() {
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset[2]/div/div[5]/div[1]/div/span[1]/span[1]/span")); //для открытия дропдауна
-        click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getYearsList()));
+        click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"))));
     }
 
-    private List<WebElement> getYearsList() {
-        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"));
-        return elements;
+    public void selectWorkingYears() {
+        click(By.xpath("")); //для открытия дропдауна
+        click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"))));
     }
 
     public void selectLivingMonths() {
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset[2]/div/div[5]/div[2]/div/span[1]/span[1]/span")); //для открытия дропдауна
-        click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getMonthsList()));
+        click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"))));
     }
 
-    private List<WebElement> getMonthsList() {
-        List<WebElement> elements = wd.findElements(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"));
-        return elements;
+    public void selectWorkingMonths() {
+        click(By.xpath("")); //для открытия дропдауна
+        click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"))));
     }
 
     public void submitFormStep1() {
@@ -65,11 +65,17 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectEducation() {
-
+        click(By.xpath("")); //для открытия дропдауна
+        click(By.cssSelector(""),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector(""))));
     }
 
-    public void selectEmployment() {
+    public void selectEmployment(RegistrationData data) {
 
+        click(By.cssSelector("")); //для открытия дропдауна // пример селектора span.selection
+        int employment = GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("")));
+        click(By.cssSelector(""), employment); //пример селектора #select2-Gender-results li[role='treeitem']
+        data.withEmployment(employment);
     }
 
     public void fillFormStep2(RegistrationData data) {

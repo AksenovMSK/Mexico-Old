@@ -22,6 +22,7 @@ public class RegistrationData {
     private String State;
     private String delegation;
 
+    private int employment;
     private String organizationName;
     private String organizationFlat;
     private String organizationHouse;
@@ -126,6 +127,11 @@ public class RegistrationData {
 
     public RegistrationData withDelegation(String delegation) {
         this.delegation = delegation;
+        return this;
+    }
+
+    public RegistrationData withEmployment(int employment) {
+        this.employment = employment;
         return this;
     }
 
@@ -254,6 +260,50 @@ public class RegistrationData {
 
     public String getDelegation() {
         return delegation;
+    }
+
+    public int getEmployment() {
+        return employment;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public String getOrganizationFlat() {
+        return organizationFlat;
+    }
+
+    public String getOrganizationHouse() {
+        return organizationHouse;
+    }
+
+    public String getOrganizationStreet() {
+        return organizationStreet;
+    }
+
+    public String getOrganizationPostIndex() {
+        return organizationPostIndex;
+    }
+
+    public String getOrganizationColony() {
+        return organizationColony;
+    }
+
+    public String getOrganizationState() {
+        return organizationState;
+    }
+
+    public String getOrganizationDelegation() {
+        return organizationDelegation;
+    }
+
+    public String getIncome() {
+        return income;
+    }
+
+    public String getNextIncomeDate() {
+        return nextIncomeDate;
     }
 }
 

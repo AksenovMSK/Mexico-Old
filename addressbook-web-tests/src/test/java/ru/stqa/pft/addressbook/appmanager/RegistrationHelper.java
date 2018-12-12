@@ -2,10 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class RegistrationHelper extends BaseHelper {
@@ -22,6 +20,7 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("Birthday"), data.getBirthDay());
         type(By.xpath("(//input[@id='MobilePhone'])[2]"), gData.getGenerationPhone());
         type(By.id("EmailAddress"), data.getEmail());
+        selectBirthPlace();
         //wd.findElement(By.xpath("(//input[@id='MobilePhone'])[2]")).click();
         //type(By.id("MobilePhone"), gData.getGenerationPhone());
     }
@@ -55,12 +54,7 @@ public class RegistrationHelper extends BaseHelper {
 
     public void selectBirthPlace() {
         click(By.cssSelector("span.selection"));
-        click(By.cssSelector("li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getBirthPlaceList()));
-    }
-
-    public List<WebElement> getBirthPlaceList(){
-        List<WebElement> elements = wd.findElements(By.cssSelector("li[role='treeitem']"));
-        return elements;
+        click(By.cssSelector("li[role='treeitem']"), GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("li[role='treeitem']")))); // getBirthPlaceList
     }
 
     public void loguot() {
@@ -78,7 +72,6 @@ public class RegistrationHelper extends BaseHelper {
                             .withMotherName("Testmothername")
                             .withEmail("test@mail.ru"),
                     new GenerationHelper());
-            List<WebElement> birthPlaceList = getBirthPlaceList();
             selectBirthPlace();
             agreeCookies();
             agreePersonal();

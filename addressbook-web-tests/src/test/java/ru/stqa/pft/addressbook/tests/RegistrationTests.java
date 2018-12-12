@@ -55,7 +55,6 @@ public class RegistrationTests extends TestBase  {
 
         app.registration().initFormStep1();
         app.registration().fillFormStep1(data, generationData);
-        app.registration().selectBirthPlace();
         app.registration().agreeCookies();
         app.registration().agreePersonal();
         app.registration().submitFormStep1();
@@ -71,15 +70,20 @@ public class RegistrationTests extends TestBase  {
                 .withState("Teststate")
                 .withDelegation("Testdelegarion");
 
-        app.applicationForTariff().selectGender(data);
         app.applicationForTariff().fillFormStep1(data, generationData);
-        app.applicationForTariff().selectLivingYears();
-        app.applicationForTariff().selectLivingMonths();
         app.applicationForTariff().submitFormStep1();
 
         Assert.assertTrue(app.isElementPresent(By.name("Income")));
 
-//            data.withIncome("")
+//        data.withOrganizationName("")
+//                .withOrganizationhouse("")
+//                .withOrganizationFlat("")
+//                .withOrganizationStreet("")
+//                .withOrganizationPostIndex("")
+//                .withOrganizationColony("")
+//                .withOrganizationState("")
+//                .withOrganizationDelegation("")
+//                .withIncome("")
 //                .withNextIncomeDate("");
 //
 //        app.applicationForTariff().selectEducation();
