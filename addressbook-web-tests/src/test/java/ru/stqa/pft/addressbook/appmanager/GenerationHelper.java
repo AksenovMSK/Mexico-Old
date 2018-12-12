@@ -80,4 +80,8 @@ public class GenerationHelper {
         }
         return result;
     }
+
+    public String getGenerationCard(){
+        return Integer.toString(random(1000, 9999));
+    }
 }

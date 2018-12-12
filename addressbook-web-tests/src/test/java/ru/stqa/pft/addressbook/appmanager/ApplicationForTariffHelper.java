@@ -76,8 +76,18 @@ public class ApplicationForTariffHelper extends BaseHelper {
                 GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-HouseType-results li[role='treeitem']"))));
     }
 
-    private void selectCheckboxes() {
-
+    private void selectCheckboxes(GenerationHelper gData) {
+        if(gData.random(1,2) == 1){
+            click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[4]/div/div/label"));
+        }
+        if(gData.random(1,2) == 1){
+            click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[5]/div/div/label"));
+        }
+        if(gData.random(1,2) == 1){
+            click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[6]/div/div/label"));
+            type(By.id("CreditCardNumber"), gData.getGenerationCard());
+        }
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[8]/div/div/label"));
     }
 
     public void fillFormStep1(RegistrationData data, GenerationHelper gData) throws ParseException {
@@ -118,10 +128,10 @@ public class ApplicationForTariffHelper extends BaseHelper {
         selectMaritalStatus();
         selectCountChildren();
         SelectHouseType();
-        type(By.id(""), gData.getGenerationPhone());
-        type(By.id(""), gData.getGenerationPhone());
+        type(By.id("HomePhone"), gData.getGenerationPhone());
+        type(By.id("AdditionalPhone"), gData.getGenerationPhone());
         type(By.id("AdditionalPhoneOwner"), data.getAdditionalPhoneOwner());
-        selectCheckboxes();
+        selectCheckboxes(gData);
     }
 
     public void submitFormStep1() {

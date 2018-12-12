@@ -7,29 +7,13 @@ public class GenerationTests {
 
     public static void main(String[] args) throws ParseException {
 
-    for(int i = 0; i < 10; i++){
-        int yyyy = random(1930, 1999);
-        int mm = random(1, 12);
-        int dd = random(1, 28);
-        String month = null;
-        String day = null;
-        if(mm < 10){
-            month = "0" + mm;
-        }
-        if(dd < 10){
-            day = "0" + dd;
-        }
 
-        if(month == null && day == null){
-            System.out.println("" + dd + "" + mm + "" + yyyy);
-        } else if (month != null && day == null){
-            System.out.println("" + dd + "" + month + "" + yyyy);
-        } else if(month == null && day != null){
-            System.out.println("" + day + "" + mm + "" + yyyy);
-        } else if(month != null && day != null){
-            System.out.println("" + day + "" + month + "" + yyyy);
-        }
-    }
+for(int i = 0; i < 100; i++){
+    System.out.println(Integer.toString(random(1000, 9999)));
+}
+
+
+
 
 
 //        final int min = 11111111; // Минимальное число для диапазона

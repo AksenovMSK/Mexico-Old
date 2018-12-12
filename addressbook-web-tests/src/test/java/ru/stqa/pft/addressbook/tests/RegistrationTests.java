@@ -96,7 +96,7 @@ public class RegistrationTests extends TestBase  {
         app.applicationForTariff().fillFormStep3(data, generationData);
         app.applicationForTariff().submitFormStep3();
 
-        Assert.assertTrue(app.isElementPresent(By.name("")));
+        Assert.assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a")));
 
         app.registration().loguot();
     }
