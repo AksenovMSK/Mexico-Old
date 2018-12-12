@@ -81,5 +81,23 @@ public class ApplicationForTariffHelper extends BaseHelper {
     public void fillFormStep2(RegistrationData data) {
         selectEducation();
         selectEmployment(data);
+        if(data.getEmployment() == 1){
+            type(By.id("OrganizationName"), data.getOrganizationName());
+            type(By.id("OrgAddress_House"), data.getOrganizationHouse());
+            type(By.id("OrgAddress_Flat"), data.getOrganizationFlat());
+            type(By.id("OrgAddress_StreetName"), data.getOrganizationStreet());
+            type(By.id("OrgAddress_PostIndex"), data.getOrganizationPostIndex());
+            type(By.id("OrgAddress_Colony"), data.getOrganizationColony());
+            type(By.id("OrgAddress_State"), data.getOrganizationState());
+            type(By.id("OrgAddress_Municipality"), data.getOrganizationDelegation());
+            selectWorkingYears();
+            selectWorkingMonths();
+        }
+        type(By.id("Income"), data.getIncome());
+        type(By.id("NextSalaryDate"), data.getNextIncomeDate());
+    }
+
+    public void submitFormStep2() {
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/div/button"));
     }
 }

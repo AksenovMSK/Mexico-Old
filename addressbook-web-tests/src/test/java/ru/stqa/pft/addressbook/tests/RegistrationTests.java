@@ -10,7 +10,7 @@ import java.text.ParseException;
 
 public class RegistrationTests extends TestBase  {
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void testRegistration(){
 
         RegistrationData data = new RegistrationData();
@@ -62,8 +62,8 @@ public class RegistrationTests extends TestBase  {
         app.registration().fillFormStep2(data);
         app.registration().submitFormStep2();
 
-            data.withFlat("Testflat")
-                .withHouse("Testhouse")
+            data.withHouse("Testhouse")
+                .withFlat("Testflat")
                 .withStreet("Teststreet")
                 .withPostIndex("45047")
                 .withColony("Testcolony")
@@ -75,20 +75,21 @@ public class RegistrationTests extends TestBase  {
 
         Assert.assertTrue(app.isElementPresent(By.name("Income")));
 
-        data.withOrganizationName("")
-                .withOrganizationHouse("")
-                .withOrganizationFlat("")
-                .withOrganizationStreet("")
-                .withOrganizationPostIndex("")
-                .withOrganizationColony("")
-                .withOrganizationState("")
-                .withOrganizationDelegation("")
-                .withIncome("")
-                .withNextIncomeDate("");
+        data.withOrganizationName("Testorgname")
+                .withOrganizationHouse("Testorghouse")
+                .withOrganizationFlat("Testorgflat")
+                .withOrganizationStreet("Testorgstreet")
+                .withOrganizationPostIndex("87945")
+                .withOrganizationColony("Testorgcolony")
+                .withOrganizationState("Testorgstate")
+                .withOrganizationDelegation("Testorgdelegarion")
+                .withIncome("123456")
+                .withNextIncomeDate("15122018");
 
-        app.applicationForTariff().selectEducation();
-        app.applicationForTariff().selectEmployment(data);
         app.applicationForTariff().fillFormStep2(data);
+        app.applicationForTariff().submitFormStep2();
+
+        Assert.assertTrue(app.isElementPresent(By.name("AdditionalPhone")));
 
         app.registration().loguot();
     }

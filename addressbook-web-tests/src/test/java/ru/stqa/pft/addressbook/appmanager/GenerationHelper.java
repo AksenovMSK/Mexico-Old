@@ -28,9 +28,9 @@ public class GenerationHelper {
                 * (upperBound - lowerBound)));
     }
 
-    public static int getRandomElementFromList(List<WebElement> birthPlaceList){
-        int randomBirthPlaceNumber = 1 + (int)(Math.random() * birthPlaceList.size() - 1);
-        return randomBirthPlaceNumber;
+    public static int getRandomElementFromList(List<WebElement> list){
+        int randomNumberFromList = 1 + (int)(Math.random() * list.size() - 1);
+        return randomNumberFromList;
     }
 
     public String getGenerationCurp(RegistrationData data) throws ParseException {
