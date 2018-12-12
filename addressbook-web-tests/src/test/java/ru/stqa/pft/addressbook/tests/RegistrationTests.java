@@ -91,6 +91,13 @@ public class RegistrationTests extends TestBase  {
 
         Assert.assertTrue(app.isElementPresent(By.name("AdditionalPhone")));
 
+        data.withAdditionalPhoneOwner("Testphoneowner");
+
+        app.applicationForTariff().fillFormStep3(data, generationData);
+        app.applicationForTariff().submitFormStep3();
+
+        Assert.assertTrue(app.isElementPresent(By.name("")));
+
         app.registration().loguot();
     }
 }

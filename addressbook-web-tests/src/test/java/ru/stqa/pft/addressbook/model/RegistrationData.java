@@ -35,6 +35,8 @@ public class RegistrationData {
     private String income;
     private String nextIncomeDate;
 
+    private String additionalPhoneOwner;
+
     public RegistrationData withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
@@ -185,7 +187,10 @@ public class RegistrationData {
         return this;
     }
 
-
+    public RegistrationData withAdditionalPhoneOwner(String additionalPhoneOwner) {
+        this.additionalPhoneOwner = additionalPhoneOwner;
+        return this;
+    }
 
 
     public String getFirstName() {
@@ -304,6 +309,10 @@ public class RegistrationData {
 
     public String getNextIncomeDate() {
         return nextIncomeDate;
+    }
+
+    public String getAdditionalPhoneOwner() {
+        return additionalPhoneOwner;
     }
 }
 
