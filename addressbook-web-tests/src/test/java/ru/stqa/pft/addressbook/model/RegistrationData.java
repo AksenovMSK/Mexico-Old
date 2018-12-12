@@ -140,7 +140,7 @@ public class RegistrationData {
         return this;
     }
 
-    public RegistrationData withOrganizationhouse(String organizationHouse) {
+    public RegistrationData withOrganizationHouse(String organizationHouse) {
         this.organizationHouse = organizationHouse;
         return this;
     }

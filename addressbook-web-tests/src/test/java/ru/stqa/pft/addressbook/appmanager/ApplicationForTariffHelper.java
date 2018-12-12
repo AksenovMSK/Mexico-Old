@@ -43,9 +43,9 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectWorkingYears() {
-        click(By.xpath("")); //для открытия дропдауна
-        click(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"),
-                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceYears-results li[role='treeitem']"))));
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[2]/div[2]/div/div[5]/div[1]/div/span[1]/span[1]/span")); //для открытия дропдауна
+        click(By.cssSelector("#select2-OrgAddress_ResidenceYears-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-OrgAddress_ResidenceYears-results li[role='treeitem']"))));
     }
 
     public void selectLivingMonths() {
@@ -55,9 +55,9 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectWorkingMonths() {
-        click(By.xpath("")); //для открытия дропдауна
-        click(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"),
-                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-RegAddress_ResidenceMonths-results li[role='treeitem']"))));
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[2]/div[2]/div/div[5]/div[2]/div/span[1]/span[1]/span")); //для открытия дропдауна
+        click(By.cssSelector("#select2-OrgAddress_ResidenceMonths-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-OrgAddress_ResidenceMonths-results li[role='treeitem']"))));
     }
 
     public void submitFormStep1() {
@@ -65,20 +65,21 @@ public class ApplicationForTariffHelper extends BaseHelper {
     }
 
     public void selectEducation() {
-        click(By.xpath("")); //для открытия дропдауна
-        click(By.cssSelector(""),
-                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector(""))));
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[1]/div[1]/div/span/span[1]/span")); //для открытия дропдауна
+        click(By.cssSelector("#select2-Education-results li[role='treeitem']"),
+                GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-Education-results li[role='treeitem']"))));
     }
 
     public void selectEmployment(RegistrationData data) {
 
-        click(By.cssSelector("")); //для открытия дропдауна // пример селектора span.selection
-        int employment = GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("")));
-        click(By.cssSelector(""), employment); //пример селектора #select2-Gender-results li[role='treeitem']
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/fieldset/div[1]/div[2]/div/span/span[1]/span")); //для открытия дропдауна // пример селектора span.selection
+        int employment = GenerationHelper.getRandomElementFromList(getElementsList(By.cssSelector("#select2-Employment-results li[role='treeitem']")));
+        click(By.cssSelector("#select2-Employment-results li[role='treeitem']"), employment); //пример селектора #select2-Gender-results li[role='treeitem']
         data.withEmployment(employment);
     }
 
     public void fillFormStep2(RegistrationData data) {
-
+        selectEducation();
+        selectEmployment(data);
     }
 }

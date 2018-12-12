@@ -75,20 +75,20 @@ public class RegistrationTests extends TestBase  {
 
         Assert.assertTrue(app.isElementPresent(By.name("Income")));
 
-//        data.withOrganizationName("")
-//                .withOrganizationhouse("")
-//                .withOrganizationFlat("")
-//                .withOrganizationStreet("")
-//                .withOrganizationPostIndex("")
-//                .withOrganizationColony("")
-//                .withOrganizationState("")
-//                .withOrganizationDelegation("")
-//                .withIncome("")
-//                .withNextIncomeDate("");
-//
-//        app.applicationForTariff().selectEducation();
-//        app.applicationForTariff().selectEmployment();
-//        app.applicationForTariff().fillFormStep2(data);
+        data.withOrganizationName("")
+                .withOrganizationHouse("")
+                .withOrganizationFlat("")
+                .withOrganizationStreet("")
+                .withOrganizationPostIndex("")
+                .withOrganizationColony("")
+                .withOrganizationState("")
+                .withOrganizationDelegation("")
+                .withIncome("")
+                .withNextIncomeDate("");
+
+        app.applicationForTariff().selectEducation();
+        app.applicationForTariff().selectEmployment(data);
+        app.applicationForTariff().fillFormStep2(data);
 
         app.registration().loguot();
     }
