@@ -69,13 +69,13 @@ public class GenerationHelper {
             day = "0" + dd;
         }
 
-        if(month == null && day == null){
+        if(day == null && month == null){
             result = "" + dd + "" + mm + "" + yyyy;
-        } else if (month != null && day == null){
+        } else if (day == null && month != null){
             result = "" + dd + "" + month + "" + yyyy;
-        } else if(month == null && day != null){
+        } else if(day != null && month == null){
             result = "" + day + "" + mm + "" + yyyy;
-        } else if(month != null && day != null){
+        } else if(day != null && month != null){
             result = "" + day + "" + month + "" + yyyy;
         }
         return result;
