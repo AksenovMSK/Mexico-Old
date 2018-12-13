@@ -43,7 +43,7 @@ public class RegistrationTests extends TestBase  {
     }
 
     @Test (enabled = true)
-    public void testApplicationForTariff() throws ParseException {
+    public void testApplicationForTariff() throws ParseException, InterruptedException {
 
         RegistrationData data = new RegistrationData();
         GenerationHelper generationData = new GenerationHelper();

@@ -146,7 +146,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div/div/button"));
     }
 
-    public void fillFormStep4(RegistrationData data) {
+    public void fillFormStep4(RegistrationData data) throws InterruptedException {
         //открываем попап прикрепления документов
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
         //открываем выподающее меню для выбора типа прикрепляемого документа
@@ -158,6 +158,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         //прикрепляем файл
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
         //закрываем попап удачного прикрепления документа
+        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
@@ -165,6 +166,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 2);
         attach(By.id("File"), data.getIfeCredential());
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
+        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
@@ -172,6 +174,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 3);
         attach(By.id("File"), data.getPhotoOfYourselfHoldingYourIFE());
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
+        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
     }
 
