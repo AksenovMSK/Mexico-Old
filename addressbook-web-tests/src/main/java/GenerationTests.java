@@ -2,14 +2,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GenerationTests {
 
     public static void main(String[] args) throws ParseException {
 
+//        long randomDate = ThreadLocalRandom.current().nextLong(-1262325600000L, 915127200000L + 1);
+//        String dateString = new SimpleDateFormat("dd/MM/yyyy").format(new Date(randomDate));
 
 for(int i = 0; i < 100; i++){
-    System.out.println(Integer.toString(random(1000, 9999)));
+    long randomDate = ThreadLocalRandom.current().nextLong(System.currentTimeMillis(), (System.currentTimeMillis()+31556952000L) + 1);;
+    String dateString = new SimpleDateFormat("ddMMyyyy").format(new Date(randomDate));
+    System.out.println(dateString);
 }
 
 

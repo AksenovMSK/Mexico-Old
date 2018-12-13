@@ -8,6 +8,8 @@ import ru.stqa.pft.addressbook.model.RegistrationData;
 
 import java.text.ParseException;
 
+import static org.testng.Assert.assertTrue;
+
 public class RegistrationTests extends TestBase  {
 
     @Test (enabled = false)
@@ -34,7 +36,7 @@ public class RegistrationTests extends TestBase  {
         app.registration().fillFormStep2(data);
         app.registration().submitFormStep2();
 
-        Assert.assertTrue(app.isElementPresent(By.name("Curp")));
+        assertTrue(app.isElementPresent(By.name("Curp")));
 
         app.registration().loguot();
     }
@@ -73,7 +75,7 @@ public class RegistrationTests extends TestBase  {
         app.applicationForTariff().fillFormStep1(data, generationData);
         app.applicationForTariff().submitFormStep1();
 
-        Assert.assertTrue(app.isElementPresent(By.name("Income")));
+        assertTrue(app.isElementPresent(By.name("Income")));
 
         data.withOrganizationName("Testorgname")
                 .withOrganizationHouse("Testorghouse")
@@ -83,20 +85,19 @@ public class RegistrationTests extends TestBase  {
                 .withOrganizationColony("Testorgcolony")
                 .withOrganizationState("Testorgstate")
                 .withOrganizationDelegation("Testorgdelegarion")
-                .withIncome("123456")
-                .withNextIncomeDate("15122018");
+                .withIncome("123456");
 
-        app.applicationForTariff().fillFormStep2(data);
+        app.applicationForTariff().fillFormStep2(data, generationData);
         app.applicationForTariff().submitFormStep2();
 
-        Assert.assertTrue(app.isElementPresent(By.name("AdditionalPhone")));
+        assertTrue(app.isElementPresent(By.name("AdditionalPhone")));
 
         data.withAdditionalPhoneOwner("Testphoneowner");
 
         app.applicationForTariff().fillFormStep3(data, generationData);
         app.applicationForTariff().submitFormStep3();
 
-        Assert.assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a")));
+        assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a")));
 
         app.registration().loguot();
     }

@@ -105,7 +105,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         selectLivingMonths();
     }
 
-    public void fillFormStep2(RegistrationData data) {
+    public void fillFormStep2(RegistrationData data, GenerationHelper gData) {
         selectEducation();
         selectEmployment(data);
         if(data.getEmployment() == 1){
@@ -121,7 +121,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
             selectWorkingMonths();
         }
         type(By.id("Income"), data.getIncome());
-        type(By.id("NextSalaryDate"), data.getNextIncomeDate());
+        type(By.id("NextSalaryDate"), gData.getGentrarionNextIncomeDate());
     }
 
     public void fillFormStep3(RegistrationData data, GenerationHelper gData) {

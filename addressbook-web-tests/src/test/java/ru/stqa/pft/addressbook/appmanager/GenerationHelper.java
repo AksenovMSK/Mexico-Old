@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GenerationHelper {
 
@@ -52,6 +53,11 @@ public class GenerationHelper {
         String newFormatDate = new SimpleDateFormat("yyyyMMdd").format(oldFormatDate);
         String rfc = "BADD" + newFormatDate.substring(2) + "S09";
         return rfc;
+    }
+
+    public String getGentrarionNextIncomeDate(){
+        long randomDate = ThreadLocalRandom.current().nextLong(System.currentTimeMillis(), (System.currentTimeMillis()+31556952000L) + 1);;
+        return new SimpleDateFormat("ddMMyyyy").format(new Date(randomDate));
     }
 
     public String getGenerationDate(){
