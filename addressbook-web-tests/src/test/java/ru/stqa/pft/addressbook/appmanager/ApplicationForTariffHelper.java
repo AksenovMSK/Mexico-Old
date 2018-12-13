@@ -154,20 +154,20 @@ public class ApplicationForTariffHelper extends BaseHelper {
         //кликаем по элементу с указанным индексом
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 1);
         //вводим (добавляем) в поле прикрепляемый файл (документ)
-        attach(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[2]/label"), data.getBankAccountStatement());
+        attach(By.id("File"), data.getBankAccountStatement());
         //закрываем попап удачного прикрепления документа
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 2);
-        attach(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[2]/label"), data.getIfeCredential());
+        attach(By.id("File"), data.getIfeCredential());
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 3);
-        attach(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[2]/label"), data.getPhotoOfYourselfHoldingYourIFE());
+        attach(By.id("File"), data.getPhotoOfYourselfHoldingYourIFE());
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
     }
 
