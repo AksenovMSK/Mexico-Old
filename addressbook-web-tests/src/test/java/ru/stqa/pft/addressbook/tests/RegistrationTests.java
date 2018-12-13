@@ -100,9 +100,9 @@ public class RegistrationTests extends TestBase  {
 
         assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a")));
 
-            data.withBankAccountStatement(new File("src/test/resources/Bank_account_statement.pdf"))
-                .withIfeCredential(new File("src/test/resources/IFE_credential.jpg"))
-                .withPhotoOfYourselfHoldingYourIFE(new File("src/test/resources/Photo_of_yourself_holding_your_IFE.png"));
+            data.withBankAccountStatement(new File("addressbook-web-tests/src/test/resources/Bank_account_statement.pdf"))
+                .withIfeCredential(new File("addressbook-web-tests/src/test/resources/IFE_credential.jpg"))
+                .withPhotoOfYourselfHoldingYourIFE(new File("addressbook-web-tests/src/test/resources/Photo_of_yourself_holding_your_IFE.png"));
 
         app.applicationForTariff().fillFormStep4(data);
         app.applicationForTariff().submitFormStep4();
