@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.io.File;
+
 public class RegistrationData {
 
     private String firstName;
@@ -36,6 +38,10 @@ public class RegistrationData {
     private String nextIncomeDate;
 
     private String additionalPhoneOwner;
+
+    private String bankAccountStatement;
+    private String ifeCredential;
+    private String photoOfYourselfHoldingYourIFE;
 
     public RegistrationData withFirstName(String firstName) {
         this.firstName = firstName;
@@ -192,6 +198,21 @@ public class RegistrationData {
         return this;
     }
 
+    public RegistrationData withBankAccountStatement(File bankAccountStatement) {
+        this.bankAccountStatement = bankAccountStatement.getPath();
+        return this;
+    }
+
+    public RegistrationData withIfeCredential(File ifeCredential) {
+        this.ifeCredential = ifeCredential.getPath();
+        return this;
+    }
+
+    public RegistrationData withPhotoOfYourselfHoldingYourIFE(File photoOfYourselfHoldingYourIFE) {
+        this.photoOfYourselfHoldingYourIFE = photoOfYourselfHoldingYourIFE.getPath();
+        return this;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -314,5 +335,11 @@ public class RegistrationData {
     public String getAdditionalPhoneOwner() {
         return additionalPhoneOwner;
     }
+
+    public File getBankAccountStatement() { return new File(bankAccountStatement); }
+
+    public File getIfeCredential() { return new File(ifeCredential); }
+
+    public File getPhotoOfYourselfHoldingYourIFE() { return new File(photoOfYourselfHoldingYourIFE); }
 }
 

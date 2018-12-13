@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.GenerationHelper;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
+import java.io.File;
 import java.text.ParseException;
 
 import static org.testng.Assert.assertTrue;
@@ -98,6 +99,15 @@ public class RegistrationTests extends TestBase  {
         app.applicationForTariff().submitFormStep3();
 
         assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a")));
+
+            data.withBankAccountStatement(new File("src/test/resources/Bank account statement.pdf"))
+                .withBankAccountStatement(new File("src/test/resources/IFE credential.jpg"))
+                .withBankAccountStatement(new File("src/test/resources/Photo of yourself holding your IFE.png"));
+
+        app.applicationForTariff().fillFormStep4(data);
+        app.applicationForTariff().submitFormStep4();
+
+        assertTrue(app.isElementPresent(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div/form/div[1]/div/div/label")));
 
         app.registration().loguot();
     }

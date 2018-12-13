@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.File;
 import java.util.List;
 
 public class BaseHelper {
@@ -25,6 +26,12 @@ public class BaseHelper {
       wd.findElement(locator).click();
       wd.findElement(locator).clear();
       wd.findElement(locator).sendKeys(text);
+    }
+
+    protected void attach(By locator, File file){
+        if(file != null){
+            wd.findElement(locator).sendKeys(file.getAbsolutePath());
+        }
     }
 
     public List<WebElement> getElementsList(By locator) {
