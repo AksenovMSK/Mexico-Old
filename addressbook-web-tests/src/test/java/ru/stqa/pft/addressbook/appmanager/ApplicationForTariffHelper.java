@@ -156,6 +156,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         //вводим (добавляем) в поле прикрепляемый файл (документ)
         attach(By.id("File"), data.getBankAccountStatement());
         //прикрепляем файл
+        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
         //закрываем попап удачного прикрепления документа
         Thread.sleep(200);
@@ -165,6 +166,7 @@ public class ApplicationForTariffHelper extends BaseHelper {
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 2);
         attach(By.id("File"), data.getIfeCredential());
+        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
         Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
