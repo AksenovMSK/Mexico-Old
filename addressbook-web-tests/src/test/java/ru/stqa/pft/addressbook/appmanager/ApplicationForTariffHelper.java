@@ -156,27 +156,33 @@ public class ApplicationForTariffHelper extends BaseHelper {
         //вводим (добавляем) в поле прикрепляемый файл (документ)
         attach(By.id("File"), data.getBankAccountStatement());
         //прикрепляем файл
-        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
         //закрываем попап удачного прикрепления документа
-        Thread.sleep(200);
+        Thread.sleep(800);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 2);
         attach(By.id("File"), data.getIfeCredential());
-        Thread.sleep(200);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
-        Thread.sleep(200);
+        Thread.sleep(800);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
 
         click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
         click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 3);
+        attach(By.id("File"), data.getIfeCredential());
+        click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
+        Thread.sleep(800);
+        click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
+
+        click(By.xpath("//*[@id=\"nojs\"]/body/div[2]/div/div[3]/div/div/div/div[1]/form/div/fieldset/div/a"));
+        click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/div[1]/div/div[1]/span[1]/span[1]/span"));
+        click(By.cssSelector("#select2-DocumentType-results li[role='treeitem']"), 4);
         attach(By.id("File"), data.getPhotoOfYourselfHoldingYourIFE());
         click(By.xpath("//*[@id=\"senddocuments-form\"]/form/div[2]/div/button"));
-        Thread.sleep(200);
+        Thread.sleep(800);
         click(By.xpath("//*[@id=\"senddocuments-form\"]/button"));
     }
 
