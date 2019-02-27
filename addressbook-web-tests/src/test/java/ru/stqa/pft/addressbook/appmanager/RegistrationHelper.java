@@ -1,7 +1,10 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import ru.stqa.pft.addressbook.model.RegistrationData;
 
 import java.util.concurrent.TimeUnit;
@@ -18,7 +21,7 @@ public class RegistrationHelper extends BaseHelper {
         type(By.id("MotherLastName"), data.getMotherName());
         data.withBirthDay(gData.getGenerationDate());
         type(By.id("Birthday"), data.getBirthDay());
-        type(By.xpath("(//input[@id='MobilePhone'])[2]"), gData.getGenerationPhone());
+        type(By.xpath("//form[@id='regForm']/fieldset[2]/div/div/input"), gData.getGenerationPhone());
         type(By.id("EmailAddress"), data.getEmail());
         selectBirthPlace();
         //wd.findElement(By.xpath("(//input[@id='MobilePhone'])[2]")).click();
@@ -33,11 +36,15 @@ public class RegistrationHelper extends BaseHelper {
     }
 
     public void agreeCookies() {
-        click(By.xpath("//div[4]/div/label"));
+        ((JavascriptExecutor) wd).executeScript("document.getElementById(\"IsCookieUsingChecked\").click()");
     }
 
     public void agreePersonal() {
-        click(By.xpath("//div[5]/div/label"));
+        ((JavascriptExecutor) wd).executeScript("document.getElementById(\"IsPersonalDataChecked\").click()");
+    }
+
+    public void agreeBuroCredito() {
+        ((JavascriptExecutor) wd).executeScript("document.getElementById(\"IsCreditBureauConditionsChecked\").click()");
     }
 
     public void submitFormStep1() {
@@ -85,4 +92,6 @@ public class RegistrationHelper extends BaseHelper {
             loguot();
         }
     }
+
+
 }

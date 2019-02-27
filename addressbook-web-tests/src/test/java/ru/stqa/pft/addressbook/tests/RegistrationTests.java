@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.appmanager.GenerationHelper;
 import ru.stqa.pft.addressbook.model.RegistrationData;
@@ -60,6 +59,7 @@ public class RegistrationTests extends TestBase  {
         app.registration().fillFormStep1(data, generationData);
         app.registration().agreeCookies();
         app.registration().agreePersonal();
+        app.registration().agreeBuroCredito();
         app.registration().submitFormStep1();
 
         app.registration().fillFormStep2(data);
