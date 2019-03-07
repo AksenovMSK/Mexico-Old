@@ -18,8 +18,8 @@ public class RegistrationTests extends TestBase  {
         RegistrationData data = new RegistrationData();
         GenerationHelper generationData = new GenerationHelper();
 
-            data.withFirstName("Testname")
-                .withSecondName("Testsecondname")
+            data.withFirstName("FICTICIO")
+                .withSecondName("UNO")
                 .withFatherName("Testfathername")
                 .withMotherName("Testmothername")
                 .withEmail("test@mail.ru")
@@ -47,8 +47,8 @@ public class RegistrationTests extends TestBase  {
         RegistrationData data = new RegistrationData();
         GenerationHelper generationData = new GenerationHelper();
 
-        data.withFirstName("Testname")
-                .withSecondName("Testsecondname")
+        data.withFirstName("FICTICIO")
+                .withSecondName("UNO")
                 .withFatherName("Testfathername")
                 .withMotherName("Testmothername")
                 .withEmail("test@mail.ru")
